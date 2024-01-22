@@ -24,19 +24,19 @@ const Navbar = () => {
 
 
   return (
-    <header className ='flex justify-between items-center px-[.3rem]'>
+    <header className ='relative z-10 flex justify-between items-center px-[.3rem]'>
       <div>
         <img src={rootsLogo} alt="" width={150} />
       </div>
 
-      <nav className={showMenu ?'flex-col absolute right-[1.5rem] top-[6.5rem] bg-[#33323d] text-center text-white w-[355px] h-[410px] py-[2.4rem] gap-[1.1rem] uppercase text-[.9rem] font-[100]': 'md:flex md:items-center gap-[1rem] uppercase text-[.8rem] hidden z-100'} 
+      <nav className={showMenu ?'flex-col absolute right-[1.5rem] top-[6.5rem] bg-[#33323d] text-center text-white w-[355px] h-[410px] py-[2.4rem] gap-[1.1rem] uppercase text-[.9rem] font-[100]': 'md:flex md:items-center gap-[1rem] uppercase text-[.8rem] hidden z-30'} 
        style={{ display: showMenu && 'flex' }}
 >
          <p onClick={() => handleLinkClick('home')} className={activeLink === 'home' ? 'active' : ''}>Home</p>
          <p onClick={() => handleLinkClick('about')} className={activeLink === 'about' ? 'active' : ''}>About</p>
          <p onClick={() => handleLinkClick('services')} className={activeLink === 'services' ? 'active' : ''}>Services</p>
-         <p onClick={() => handleLinkClick('portfolio')} className={activeLink === 'portfolio' ? 'active' : ''}>Portfolio</p>
          <p onClick={() => handleLinkClick('team')} className={activeLink === 'team' ? 'active' : ''}>Team</p>
+         <p onClick={() => handleLinkClick('portfolio')} className={activeLink === 'portfolio' ? 'active' : ''}>Portfolio</p>
          <p onClick={() => handleLinkClick('social media')} className={activeLink === 'social media' ? 'active' : ''}>Social Media</p>
          <p onClick={() => handleLinkClick('contact')} className={activeLink === 'contact' ? 'active' : ''}>Contact</p>
       </nav>
