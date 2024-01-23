@@ -5,6 +5,7 @@ const Team = () => {
   return (
     <section className='mt-[2rem] px-[1rem]'>
       <h2 className='text-center text-[2rem]'>Our Team</h2>
+      <div className='w-[120px] h-[3px] bg-[purple] mx-auto'></div>
 
       <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1rem] mt-[2rem] mb-[1rem]'>
         {TEAM.map((member) => (
