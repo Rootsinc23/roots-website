@@ -24,7 +24,7 @@ const Navbar = () => {
 
 
   return (
-    <header className ='relative z-10 flex justify-between items-center px-[.3rem]'>
+    <header className ='relative fixed  top-0 left-0 z-50 flex justify-between items-center px-[.3rem] md:px-[1rem]'>
       <div>
         <img src={rootsLogo} alt="" width={150} />
       </div>
@@ -36,7 +36,6 @@ const Navbar = () => {
          <p onClick={() => handleLinkClick('about')} className={activeLink === 'about' ? 'active' : ''}>About</p>
          <p onClick={() => handleLinkClick('services')} className={activeLink === 'services' ? 'active' : ''}>Services</p>
          <p onClick={() => handleLinkClick('team')} className={activeLink === 'team' ? 'active' : ''}>Team</p>
-         <p onClick={() => handleLinkClick('portfolio')} className={activeLink === 'portfolio' ? 'active' : ''}>Portfolio</p>
          <p onClick={() => handleLinkClick('social media')} className={activeLink === 'social media' ? 'active' : ''}>Social Media</p>
          <p onClick={() => handleLinkClick('contact')} className={activeLink === 'contact' ? 'active' : ''}>Contact</p>
       </nav>

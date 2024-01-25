@@ -5,6 +5,9 @@ import pic6 from './assets/images/didi.jpg';
 import pic7 from './assets/images/victory.jpg';
 import pic8 from './assets/images/koko.jpg';
 import pic10 from './assets/images/popi.jpg';
+import pic1 from './assets/images/kato.jpg';
+import pic2 from './assets/images/chidera.jpg';
+
 
 const TEAM = [
 {
@@ -12,14 +15,14 @@ const TEAM = [
     name: 'Kato',
     track: 'Fullstack Developer',
     role: 'C.E.O',
-    // img: pic1
+    img: pic1
 },
 {
     id: 2,
     name: 'Faith',
     track: 'Frontend Developer',
     role: 'C.T.O',
-    // img: pic2
+    img: pic2
 },
 {
     id: 3,

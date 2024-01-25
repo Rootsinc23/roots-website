@@ -11,13 +11,13 @@ const Team = () => {
   return (
     <section className='mt-[2rem] px-[1rem]'>
       <h2 className='text-center text-[2rem]'>Our Team</h2>
-      <div className='w-[120px] h-[3px] bg-[purple] mx-auto'></div>
+      <div className='w-[120px] h-[2px] bg-[purple] mx-auto mt-[.3rem]'></div>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1rem] mt-[2rem] mb-[1rem]'>
         {TEAM.map((member, index) => (
           <div
             key={member.name}
-            className={`border-[1px] rounded-[.3rem] text-center ${
+            className={`border-[1px] border-[#2eb435] rounded-[.3rem] text-center ${
               (!showAll && index >= 4) ? 'hidden md:block' : ''
             }`}
           >
