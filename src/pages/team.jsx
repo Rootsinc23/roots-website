@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TEAM from '../team';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Team = () => {
+  useEffect(() => {
+    Aos.init({duration: 2000});
+ }, [])
+
   const [showAll, setShowAll] = useState(false);
 
   const toggleShowAll = () => {
@@ -9,18 +15,18 @@ const Team = () => {
   };
 
   return (
-    <section className='mt-[2rem] px-[1rem] mb-[3rem]'>
+    <section className='mt-[2rem] px-[1rem] mb-[3rem]' id='team'>
       <h2 className='text-center text-[2rem]'>Our Team</h2>
       <div className='w-[120px] h-[2px] bg-[purple] mx-auto mt-[.3rem]'></div>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1rem] mt-[2rem] mb-[1rem]'>
         {TEAM.map((member, index) => (
           <div
-            key={member.name}
+            key={member.id}
             className={`border-[1px] border-[#2eb435] rounded-[.3rem] text-center ${
               (!showAll && index >= 4) ? 'hidden lg:block' : ''
             }`}
-          >
+           data-aos = "fade-left" >
             <div>
               <img src={member.img} alt="" className='w-[100px] h-[100px] object-cover rounded-full mx-auto mt-[1.5rem]' />
             </div>

@@ -61,39 +61,40 @@ const TEAM = [
 },
 {
     id: 8,
+    name: 'Bella',
+    track: 'Ui/Ux Designer',
+    role: 'Team member',
+    // img: pic12
+},
+{
+    id: 9,
     name: 'Koko',
     track: 'Data Specialist',
     role: 'Team lead',
     img: pic8
 },
 {
-    id: 9,
+    id: 10,
     name: 'Thati',
     track: 'Backend Developer',
     role: 'Team member',
     // img: pic9
 },
 {
-    id: 10,
+    id: 11,
     name: 'Popi',
     track: 'Product Manager',
     role: 'Lead',
     img: pic10
 },
 {
-    id: 5,
+    id: 12,
     name: 'Eva',
     track: 'Marketing Specialist',
     role: 'Lead',
     // img: pic11
 },
-{
-    id: 6,
-    name: 'Bella',
-    track: 'Ui/Ux Designer',
-    role: 'Team member',
-    // img: pic12
-},
+
 
 ]
 

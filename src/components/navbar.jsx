@@ -2,6 +2,7 @@ import React from 'react';
 import rootsLogo from '../assets/images/roots-logo.png';
 import { useState } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
 
@@ -29,13 +30,37 @@ const Navbar = () => {
 
       <nav className={showMenu ?'flex-col absolute right-[1.5rem] top-[6.5rem] bg-[#33323d] text-center text-white w-[355px] h-[410px] py-[2.4rem] gap-[1.1rem] uppercase text-[.9rem] font-[100]': 'md:flex md:items-center gap-[1rem] uppercase text-[.8rem] hidden z-30'} 
        style={{ display: showMenu && 'flex' }}
->
-         <p onClick={() => handleLinkClick('home')} className={activeLink === 'home' ? 'active' : ''}>Home</p>
-         <p onClick={() => handleLinkClick('about')} className={activeLink === 'about' ? 'active' : ''}>About</p>
+>        
+        
+        <Link to='home' smooth={true} duration={800}>
+           <p onClick={() => handleLinkClick('home')} className={activeLink === 'home' ? 'active' : ''}>Home</p>
+        </Link>
+        
+        <Link to='about' smooth={true} duration={800}>
+        <p onClick={() => handleLinkClick('about')} className={activeLink === 'about' ? 'active' : ''}>About</p>
+         </Link>
+        
+
+         <Link to='services' smooth={true} duration={800}>
          <p onClick={() => handleLinkClick('services')} className={activeLink === 'services' ? 'active' : ''}>Services</p>
+         </Link>
+         
+
+
+         <Link to='team' smooth={true} duration={800}>
          <p onClick={() => handleLinkClick('team')} className={activeLink === 'team' ? 'active' : ''}>Team</p>
+         </Link>
+         
+
+         <Link to='social-media' smooth={true} duration={800}>
          <p onClick={() => handleLinkClick('social media')} className={activeLink === 'social media' ? 'active' : ''}>Social Media</p>
+         </Link>
+         
+
+         <Link to='contact' smooth={true} duration={800}>
          <p onClick={() => handleLinkClick('contact')} className={activeLink === 'contact' ? 'active' : ''}>Contact</p>
+         </Link>
+         
       </nav>
 
       {!showMenu ? <AiOutlineMenu size={30} className='md:hidden' onClick={handleShowMenu}/> : <AiOutlineClose size={30} className='md:hidden' onClick={handleCloseMenu}/>}
