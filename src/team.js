@@ -7,6 +7,8 @@ import pic8 from './assets/images/koko.jpg';
 import pic10 from './assets/images/popi.jpg';
 import pic1 from './assets/images/kato.jpg';
 import pic2 from './assets/images/chidera.jpg';
+import pic9 from './assets/images/thati.jpg';
+import pic12 from './assets/images/bella.jpg';
 
 
 const TEAM = [
@@ -71,7 +73,7 @@ const TEAM = [
     name: 'Thati',
     track: 'Backend Developer',
     role: 'Team member',
-    // img: pic9
+    img: pic9
 },
 {
     id: 10,
@@ -92,7 +94,7 @@ const TEAM = [
     name: 'Bella',
     track: 'Ui/Ux Designer',
     role: 'Team member',
-    // img: pic12
+    img: pic12
 },
 
 ]
