@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { MdMail } from 'react-icons/md';
+import Form from '../components/form';
 
 const Contact = () => {
   return (
@@ -30,6 +31,7 @@ const Contact = () => {
     </div>
     </div>
     
+    <Form />
  </section>
   );
 }

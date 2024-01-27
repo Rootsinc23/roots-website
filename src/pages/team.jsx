@@ -9,7 +9,7 @@ const Team = () => {
   };
 
   return (
-    <section className='mt-[2rem] px-[1rem]'>
+    <section className='mt-[2rem] px-[1rem] mb-[3rem]'>
       <h2 className='text-center text-[2rem]'>Our Team</h2>
       <div className='w-[120px] h-[2px] bg-[purple] mx-auto mt-[.3rem]'></div>
 
@@ -18,7 +18,7 @@ const Team = () => {
           <div
             key={member.name}
             className={`border-[1px] border-[#2eb435] rounded-[.3rem] text-center ${
-              (!showAll && index >= 4) ? 'hidden md:block' : ''
+              (!showAll && index >= 4) ? 'hidden lg:block' : ''
             }`}
           >
             <div>
@@ -35,14 +35,14 @@ const Team = () => {
 
       {!showAll ? (
         <button
-          className='border-[.8px]  border-[purple] text-black py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 md:hidden'
+          className='border-[.8px]  border-[purple] text-black py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden'
           onClick={toggleShowAll}
         >
           See More
         </button>
       ) :  (
         <button
-          className='border-[.8px]  border-[purple] text-black py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 md:hidden'
+          className='border-[.8px]  border-[purple] text-black py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden '
           onClick={toggleShowAll}
         >
           See Less
