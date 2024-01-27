@@ -21,7 +21,7 @@ const TEAM = [
     id: 2,
     name: 'Faith',
     track: 'Frontend Developer',
-    role: 'C.T.O',
+    role: 'C.O.O',
     img: pic2
 },
 {
@@ -62,7 +62,7 @@ const TEAM = [
 {
     id: 8,
     name: 'Koko',
-    track: 'Backend Developer',
+    track: 'Data Specialist',
     role: 'Team lead',
     img: pic8
 },
@@ -75,7 +75,7 @@ const TEAM = [
 },
 {
     id: 10,
-    name: 'Poppi',
+    name: 'Popi',
     track: 'Product Manager',
     role: 'Lead',
     img: pic10
@@ -86,6 +86,13 @@ const TEAM = [
     track: 'Marketing Specialist',
     role: 'Lead',
     // img: pic11
+},
+{
+    id: 6,
+    name: 'Bella',
+    track: 'Ui/Ux Designer',
+    role: 'Team member',
+    // img: pic12
 },
 
 ]

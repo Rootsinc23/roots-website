@@ -6,6 +6,7 @@ import Team from './pages/team';
 import SocialMedia from './pages/social-media';
 import TopReviews from './components/top-reviews';
 import Contact from './pages/contact';
+import About from './pages/about';
 
 function App() {
  
@@ -13,6 +14,7 @@ function App() {
   return (
     <>
      <Home />
+     <About />
      <Team />
      <div className='mt-[3rem] md:flex  md:px-[1rem]'>
        <img src={team1} alt="" className='w-full h-[300px] sm:h-[400px] md:w-[800px]' />
