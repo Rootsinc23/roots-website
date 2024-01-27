@@ -2,9 +2,10 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div>
-      
-    </div>
+    <section className='mx-auto mt-[2rem] px-[1rem]'>
+      <h1 className='text-center text-[2rem]'>About Us</h1>
+      <div className="bg-[purple] w-[120px] h-[3px] mx-auto"></div>
+    </section>
   );
 }
 
