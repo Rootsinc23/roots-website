@@ -12,11 +12,11 @@ const About = () => {
     <section data-aos="ease-in" className="mx-auto mt-[2rem] px-[1rem]" id="about">
       <h1 className="text-center text-[2rem]">About Us</h1>
       <div className="bg-[rgb(128,0,128)] w-[120px] h-[2px] mx-auto"></div>
-      <div className="p-7 gap-5">
+      <div className="sm:flex-1 sm:text-center gap-5">
         <div data-aos="fade-up">
-          <img src={abt} className="w-[100%]" alt="about-us" />
+          <img src={abt}  className="w-[100%] mt-9" alt="about-us" />
         </div>
-        <div data-aos="fade-up" className="relative text-left text-[1rem] mt-5 ">
+        <div data-aos="fade-up" className=" text-left text-[1rem] mt-9 ">
           Founded in 2023, ROOTS was born out of a shared vision among a group
           of seasoned tech enthusiasts who recognized the potential of
           technology to transform industries and improve lives. They envisioned
