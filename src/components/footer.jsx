@@ -89,28 +89,28 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaGithub size={30} className="text-[#2eb435]" />
+          <FaGithub size={30} className="text-[#228b22]" />
         </a>
         <a
           href="https://twitter.com/your-username"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaTwitter size={30} className="text-[#2eb435]" />
+          <FaTwitter size={30} className="text-[#228b22]" />
         </a>
         <a
           href="https://www.linkedin.com/in/your-username"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaLinkedin size={30} className="text-[#2eb435]" />
+          <FaLinkedin size={30} className="text-[#228b22]" />
         </a>
         <a
           href="https://www.linkedin.com/in/your-username"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaFacebook size={30} className="text-[#2eb435]" />
+          <FaFacebook size={30} className="text-[#228b22]" />
         </a>
       </div>
 

@@ -23,9 +23,11 @@ const Team = () => {
         {TEAM.map((member, index) => (
           <div
             key={member.id}
-            className={`border-[1px] border-[#2eb435] rounded-[.3rem] text-center ${
-              !showAll && index >= 4 ? "hidden lg:block" : ""
-            }`}
+            className={`border-[1px] border-[#228b22] rounded-[.3rem] text-center ${
+              !showAll && (index >= 4 && window.innerWidth < 640) ? "hidden lg:block" : ""
+            }
+            ${!showAll && index >= 6 && window.innerWidth >= 640 ? "hidden lg:block" : ""}
+            `}
             data-aos="fade-left"
           >
             <div>

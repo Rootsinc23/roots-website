@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="relative fixed  top-0 left-0 z-50 flex justify-between items-center px-[.3rem] md:px-[1rem]">
+    <header className="relative flex justify-between items-center px-[.3rem] md:px-[1rem]">
       <img src={rootsLogo} alt="" width={150} />
 
       <nav
