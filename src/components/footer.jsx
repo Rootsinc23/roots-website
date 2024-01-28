@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import rootsLogo from '../assets/images/roots-logo.png';
 import { FaGithub, FaTwitter, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { Link } from 'react-scroll';
 
 const Footer = () => {
 
@@ -10,19 +11,41 @@ const Footer = () => {
         setActiveLink(link);
       };
   return (
-    <section className='px-[1rem] bg-[#33323d] text-white mt-[3rem] '>
-    <div className='sm:flex sm:items-center sm:justify-around'>
-        <img src={rootsLogo} alt="" width={130} className='ml-[6.5rem] sm:mx-0'/>
+    <section className=' bg-[#33323d] text-white mt-[3rem] ' >
+    <div className='sm:flex sm:items-center sm:justify-around' data-aos = "fade-left">
+        <img src={rootsLogo} alt="" width={130} className='mx-auto sm:mx-0'/>
         <p className='text-[.7rem] hidden'>As R.O.O.T.S continues to grow, it remains dedicated to its mission of unearthing potential, solving problems, and leaving a lasting impact on the world through the power of technology. This startup is not just a company; it's a movement that aims to redefine the tech landscape and pave the way for a more innovative and sustainable future.</p>
 
         <nav
-className=' sm:flex text-center sm:items-center sm:gap-[1rem]'>
-         <p onClick={() => handleLinkClick('home')} className={activeLink === 'home' ? 'active' : ''} style={{padding: '.3rem 0'}}>Home</p>
-         <p onClick={() => handleLinkClick('about')} className={activeLink === 'about' ? 'active' : ''}style={{padding: '.3rem 0'}}>About</p>
-         <p onClick={() => handleLinkClick('services')} className={activeLink === 'services' ? 'active' : ''} style={{padding: '.3rem 0'}}>Services</p>
-         <p onClick={() => handleLinkClick('team')} className={activeLink === 'team' ? 'active' : ''} style={{padding: '.3rem 0'}}>Team</p>
-         <p onClick={() => handleLinkClick('social media')} className={activeLink === 'social media' ? 'active' : ''} style={{padding: '.3rem 0'}}>Social Media</p>
-         <p onClick={() => handleLinkClick('contact')} className={activeLink === 'contact' ? 'active' : ''} style={{padding: '.3rem 0'}} >Contact</p>
+className=' sm:flex text-center sm:items-center sm:mr-[auto] sm:gap-[1rem]'>
+         <Link to='home' smooth={true} duration={800}>
+           <p onClick={() => handleLinkClick('home')} className={activeLink === 'home' ? 'active' : ''}>Home</p>
+        </Link>
+        
+        <Link to='about' smooth={true} duration={800}>
+        <p onClick={() => handleLinkClick('about')} className={activeLink === 'about' ? 'active' : ''}>About</p>
+         </Link>
+        
+
+         <Link to='services' smooth={true} duration={800}>
+         <p onClick={() => handleLinkClick('services')} className={activeLink === 'services' ? 'active' : ''}>Services</p>
+         </Link>
+         
+
+
+         <Link to='team' smooth={true} duration={800}>
+         <p onClick={() => handleLinkClick('team')} className={activeLink === 'team' ? 'active' : ''}>Team</p>
+         </Link>
+         
+
+         <Link to='social-media' smooth={true} duration={800}>
+         <p onClick={() => handleLinkClick('social media')} className={activeLink === 'social media' ? 'active' : ''}>Social Media</p>
+         </Link>
+         
+
+         <Link to='contact' smooth={true} duration={800}>
+         <p onClick={() => handleLinkClick('contact')} className={activeLink === 'contact' ? 'active' : ''}>Contact</p>
+         </Link>
       </nav>
       </div>
       <div className='flex gap-[1rem] py-[2rem] justify-center' data-aos = "fade-left">

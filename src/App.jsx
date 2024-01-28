@@ -16,20 +16,20 @@ function App() {
   return (
     <>
      <Home />
-     <About />
-     <Services />
+     {/* <About />
+     <Services /> */}
      <Team />
-     <div className='mt-3 md:flex md:px-1rem'>
+     <div className='mt-3 sm:flex'>
 
 
   {/* First Image */}
   <div className='md:w-1/2'>
-    <img src={team1} alt="" className='w-full h-64 sm:h-80 object-cover' />
+    <img src={team1} alt="" className='w-full h-64 sm:h-80 object-cover' data-aos = "fade-left"/>
   </div>
 
   {/* Second Image with Overlay */}
-  <div className='relative md:w-1/2'>
-    <img src={team2} alt="" className='w-full h-64 sm:h-80 object-cover' />
+  <div className='relative md:w-1/2'  data-aos = "fade-left">
+    <img src={team2} alt="" className='w-full h-64 sm:h-80 object-cover'/>
     
     {/* Overlay */}
     <div className='absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center text-white z-30'>
