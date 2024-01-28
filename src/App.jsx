@@ -16,8 +16,8 @@ function App() {
   return (
     <>
      <Home />
-     {/* <About />
-     <Services /> */}
+     <About />
+     <Services />
      <Team />
      <div className='mt-3 sm:flex'>
 
