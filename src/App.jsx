@@ -45,7 +45,7 @@ function App() {
                 IS ON THE LOOKOUT FOR TALENTED INDIVIDUALS LIKE YOU TO JOIN OUR
                 DYNAMIC TEAM.
               </p>
-              <button className="rounded-[.2rem] py-2 px-3 border-[.7px] border-[#2eb435] text-white text-sm mt-2">
+              <button className="rounded-[.2rem] py-2 px-3 border-[.7px] border-[#228b22] text-white text-sm mt-2">
                 Contact Us
               </button>
             </div>

@@ -62,6 +62,13 @@ const TEAM = [
     img: pic7
 },
 {
+    id: 8,
+    name: 'Bella',
+    track: 'Ui/Ux Designer',
+    role: 'Team member',
+    img: pic12
+},
+{
     id: 9,
     name: 'Koko',
     track: 'Data Specialist',
@@ -90,13 +97,7 @@ const TEAM = [
     // img: pic11
 },
 
-{
-    id: 6,
-    name: 'Bella',
-    track: 'Ui/Ux Designer',
-    role: 'Team member',
-    img: pic12
-},
+
 
 ]
 

@@ -17,24 +17,24 @@ const Services = () => {
     });
   }, []);
   return (
-    <section className="mt-[2rem] px-[1rem]" id="services">
+    <section className="mt-[3rem] px-[1rem]" id="services">
       <h2 className="text-center text-[2rem]">Our Services</h2>
       <div className="w-[130px] h-[2px] bg-[purple] mx-auto mt-[.3rem]"></div>
       <h1 className="text-center mt-3">Services that Redefine Excellence</h1>
       <div
         data-aos="fade-in"
-        className="grid grid-cols-1 grid-rows-2 md:grid-cols-3 w-[100%] p-6 gap-[4rem] mt-[1rem] mb-[1rem]"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-[100%] p-6 gap-[4rem] mt-[1rem] mb-[1rem]"
       >
         <div className="text-left">
           <div data-aos="fade-up" className="justify-center items-center flex">
             <FaPaintBrush
               size={30}
-              className="hover:text-[#228b22] hover-scale transition-all duration-200m-[5px]"
+              className="text-[#228b22] hover-scale transition-all duration-200m-[5px]"
             />
           </div>
           <h1
             data-aos="fade-up"
-            className="text-[30px] text-center hover:text-[#228b22] hover-scale transition-all duration-200  justify-center items-center flex"
+            className="text-[30px] text-center hover-scale transition-all duration-200  justify-center items-center flex"
           >
             Web Design
           </h1>
@@ -61,10 +61,10 @@ const Services = () => {
           <div className="justify-center items-center flex">
             <FaDesktop
               size={30}
-              className="hover:text-[#228b22] hover-scale transition-all duration-200m-[5px]"
+              className="text-[#228b22] hover-scale transition-all duration-200m-[5px]"
             />
           </div>
-          <h1 className="text-[30px] text-center hover:text-[#228b22] hover-scale transition-all duration-200  justify-center items-center flex">
+          <h1 className="text-[30px] text-center hover-scale transition-all duration-200  justify-center items-center flex">
             Development Expertise
           </h1>
           <br />
@@ -84,10 +84,10 @@ const Services = () => {
           <div className="justify-center items-center flex">
             <FaShoppingCart
               size={30}
-              className="hover:text-[#228b22] hover-scale transition-all duration-200m-[5px]"
+              className="text-[#228b22] hover-scale transition-all duration-200m-[5px]"
             />
           </div>
-          <h1 className="text-[30px] text-center hover:text-[#228b22] hover-scale transition-all duration-200  ">
+          <h1 className="text-[30px] text-center  hover-scale transition-all duration-200  ">
             E-commerce development
           </h1>
           <br />
@@ -101,10 +101,10 @@ const Services = () => {
           <div className="justify-center items-center flex">
             <FaCode
               size={30}
-              className="hover:text-[#228b22] hover-scale transition-all duration-200m-[5px]"
+              className="text-[#228b22] hover-scale transition-all duration-200m-[5px]"
             />
           </div>
-          <h1 className="text-[30px] text-center hover:text-[#228b22] hover-scale transition-all duration-200  ">
+          <h1 className="text-[30px] text-center hover-scale transition-all duration-200  ">
             Web Application and Development
           </h1>
           <br />
@@ -119,10 +119,10 @@ const Services = () => {
           <div className="justify-center items-center flex">
             <FaUserEdit
               size={30}
-              className="hover:text-[#228b22] hover-scale transition-all duration-200m-[5px]"
+              className="text-[#228b22] hover-scale transition-all duration-200m-[5px]"
             />
           </div>
-          <h1 className="text-[30px] text-center hover:text-[#228b22] hover-scale transition-all duration-200  ">
+          <h1 className="text-[30px] text-center  hover-scale transition-all duration-200  ">
             Enterprise Development
           </h1>
           <br />
@@ -138,7 +138,7 @@ const Services = () => {
           <div className="justify-center items-center flex">
             <FaTools
               size={30}
-              className="hover:text-[#228b22] hover-scale transition-all duration-200m-[5px]"
+              className="text-[#228b22] hover-scale transition-all duration-200m-[5px]"
             />
           </div>
           <h1 className="text-[30px] text-center hover:text-[#228b22] hover-scale transition-all duration-200  ">
