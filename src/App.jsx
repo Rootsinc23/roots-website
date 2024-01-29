@@ -9,10 +9,13 @@ import Contact from "./pages/contact";
 import Footer from "./components/footer";
 import About from "./pages/about";
 import Services from "./pages/services";
+import Preloader from "./components/preloader";
 
 function App() {
+
   return (
     <div>
+      {/* <Preloader /> */}
       <Home />
       <About />
       <Services />

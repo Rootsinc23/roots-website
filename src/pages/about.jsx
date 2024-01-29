@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import abt from "../assets/images/about_us.jpg";
+import abt from "../assets/images/about_us.png";
 
 
 const About = () => {

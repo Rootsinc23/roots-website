@@ -23,7 +23,7 @@ const Team = () => {
         {TEAM.map((member, index) => (
           <div
             key={member.id}
-            className={`border-[1px] hover:bg-[#143814] hover-scale transition-opacity duration-700  border-[#228b22] rounded-[.3rem] text-center ${
+            className={`border-[1px] hover:text-white hover:bg-green-600 dark:hover:bg-[#143814] border-[#228b22] rounded-[.3rem] text-center ${
               !showAll && (index >= 4 && window.innerWidth < 640) ? "hidden lg:block" : ""
             }
             ${!showAll && index >= 6 && window.innerWidth >= 640 ? "hidden lg:block" : ""}
