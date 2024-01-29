@@ -3,6 +3,7 @@ import rootsLogo from "../assets/images/roots-logo.png";
 import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-scroll";
+import {FaMoon, FaSun, FaDesktop} from 'react-icons/fa'
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -21,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="relative flex justify-between items-center px-[.3rem] md:px-[1rem]">
+    <header className="relative flex justify-between dark:text-gray-100 dark:bg-slate-900 items-center px-[.3rem] md:px-[1rem]">
       <img src={rootsLogo} alt="" width={150} />
 
       <nav
@@ -85,6 +86,21 @@ const Navbar = () => {
             Contact
           </p>
         </Link>
+        <div className="">
+          <button>
+            <FaMoon />
+          </button>
+        </div>
+        <div className="">
+          <button>
+            <FaSun />
+          </button>
+        </div>
+        <div className="">
+          <button>
+            <FaDesktop />
+          </button>
+        </div>
       </nav>
 
       {!showMenu ? (

@@ -1,14 +1,14 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import carousel1 from "../assets/images/carouselImg4.jpeg";
-import carousel2 from "../assets/images/carouselImg5.jpeg";
-import carousel3 from "../assets/images/carouselImg6.jpeg";
+import carousel1 from "../assets/images/chromeDots.jpg";
+import carousel2 from "../assets/images/hackMan.jpg";
+import carousel3 from "../assets/images/greenArrow.jpg";
 import { Link } from "react-scroll";
 
 const MyCarousel = () => {
   return (
-    <div className="relative z-0">
+    <div className="relative z-0 dark:text-gray-100 dark:bg-slate-900">
       <Carousel>
         <Carousel.Item>
           <div className="overlay-container">
