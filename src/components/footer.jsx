@@ -10,7 +10,7 @@ const Footer = () => {
     setActiveLink(link);
   };
   return (
-    <section className=" bg-[#33323d] text-white mt-[3rem] ">
+    <section className=" bg-[#33323d] text-white p-[5%] dark:text-gray-100 dark:bg-slate-900">
       <div
         className="sm:flex sm:items-center sm:justify-around"
         data-aos="fade-left"

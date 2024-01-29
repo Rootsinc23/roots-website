@@ -12,14 +12,14 @@ import Services from "./pages/services";
 
 function App() {
   return (
-    <>
+    <div>
       <Home />
       <About />
       <Services />
       <Team />
-      <div className="mt-3 sm:flex">
+      <div className=" sm:flex dark:text-gray-100 dark:bg-slate-900">
         {/* First Image */}
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 ">
           <img
             src={team1}
             alt=""
@@ -57,7 +57,7 @@ function App() {
       <TopReviews />
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 }
 

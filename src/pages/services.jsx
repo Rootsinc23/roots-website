@@ -17,7 +17,7 @@ const Services = () => {
     });
   }, []);
   return (
-    <section className="mt-[3rem] px-[1rem]" id="services">
+    <section className=" px-[1rem] pt-[5%] dark:text-gray-100 dark:bg-slate-900" id="services">
       <h2 className="text-center text-[2rem]">Our Services</h2>
       <div className="w-[130px] h-[2px] bg-[purple] mx-auto mt-[.3rem]"></div>
       <h1 className="text-center mt-3">Services that Redefine Excellence</h1>
@@ -34,7 +34,7 @@ const Services = () => {
           </div>
           <h1
             data-aos="fade-up"
-            className="text-[30px] text-center hover-scale transition-all duration-200  justify-center items-center flex"
+            className="text-[30px] text-center hover:text-[#228b22] hover-scale transition-all duration-200  justify-center items-center flex"
           >
             Web Design
           </h1>
@@ -64,7 +64,7 @@ const Services = () => {
               className="text-[#228b22] hover-scale transition-all duration-200m-[5px]"
             />
           </div>
-          <h1 className="text-[30px] text-center hover-scale transition-all duration-200  justify-center items-center flex">
+          <h1 className="text-[30px] text-center hover:text-[#228b22] hover-scale transition-all duration-200  justify-center items-center flex">
             Development Expertise
           </h1>
           <br />
@@ -87,7 +87,7 @@ const Services = () => {
               className="text-[#228b22] hover-scale transition-all duration-200m-[5px]"
             />
           </div>
-          <h1 className="text-[30px] text-center  hover-scale transition-all duration-200  ">
+          <h1 className="text-[30px] text-center  hover:text-[#228b22] hover-scale transition-all duration-200  ">
             E-commerce development
           </h1>
           <br />
@@ -104,7 +104,7 @@ const Services = () => {
               className="text-[#228b22] hover-scale transition-all duration-200m-[5px]"
             />
           </div>
-          <h1 className="text-[30px] text-center hover-scale transition-all duration-200  ">
+          <h1 className="text-[30px] text-center hover:text-[#228b22] hover-scale transition-all duration-200 ">
             Web Application and Development
           </h1>
           <br />
@@ -122,7 +122,7 @@ const Services = () => {
               className="text-[#228b22] hover-scale transition-all duration-200m-[5px]"
             />
           </div>
-          <h1 className="text-[30px] text-center  hover-scale transition-all duration-200  ">
+          <h1 className="text-[30px] text-center  hover:text-[#228b22] hover-scale transition-all duration-200  ">
             Enterprise Development
           </h1>
           <br />

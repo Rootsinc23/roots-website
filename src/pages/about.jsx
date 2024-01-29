@@ -5,7 +5,7 @@ import abt from "../assets/images/about_us.jpg";
 const About = () => {
  
   return (
-    <section data-aos="ease-in" className="mx-auto mt-[2rem] px-[1rem]" id="about">
+    <section data-aos="ease-in" className=" px-[2rem] pt-[5%] dark:text-gray-100 dark:bg-slate-900" id="about">
       <h1 className="text-center text-[2rem]">About Us</h1>
       <div className="bg-[rgb(128,0,128)] w-[120px] h-[2px] mx-auto"></div>
       <div className="p-7 gap-5">

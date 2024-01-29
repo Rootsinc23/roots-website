@@ -3,7 +3,7 @@ import { FaGithub, FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa";
 
 const SocialMedia = () => {
   return (
-    <section className="mt-[3rem] px-[1rem]" id="social-media">
+    <section className=" p-[5%] dark:text-gray-100 dark:bg-slate-900" id="social-media">
       <h2 className="text-center text-[2rem]">Get In Touch</h2>
       <div className="w-[140px] h-[2px] bg-[purple] mx-auto mt-[.3rem]"></div>
 
