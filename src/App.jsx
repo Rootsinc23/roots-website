@@ -10,12 +10,14 @@ import Footer from "./components/footer";
 import About from "./pages/about";
 import Services from "./pages/services";
 import Preloader from "./components/preloader";
+import ParticlesBackground from "./components/particlesBackground";
 
 function App() {
 
   return (
     <div>
-      {/* <Preloader /> */}
+      
+      <ParticlesBackground />
       <Home />
       <About />
       <Services />
@@ -60,6 +62,7 @@ function App() {
       <TopReviews />
       <Contact />
       <Footer />
+      <Preloader />
     </div>
   );
 }
