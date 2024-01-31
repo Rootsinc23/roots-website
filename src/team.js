@@ -1,14 +1,14 @@
-import pic3 from './assets/images/emmanuel.jpg';
-import pic4 from './assets/images/dami.jpg';
-import pic5 from './assets/images/amara.jpg';
-import pic6 from './assets/images/didi.jpg';
-import pic7 from './assets/images/victory.jpg';
-import pic8 from './assets/images/koko.jpg';
-import pic10 from './assets/images/popi.jpg';
-import pic1 from './assets/images/kato.jpg';
-import pic2 from './assets/images/chidera.jpg';
-import pic9 from './assets/images/thati.jpg';
-import pic12 from './assets/images/bella.jpg';
+import pic3 from './assets/images/team/emmanuel.jpg';
+import pic4 from './assets/images/team/dami.jpg';
+import pic5 from './assets/images/team/amara.jpg';
+import pic6 from './assets/images/team/didi.jpg';
+import pic7 from './assets/images/team/victory.jpg';
+import pic8 from './assets/images/team/koko.jpg';
+import pic10 from './assets/images/team//popi.jpg';
+import pic1 from './assets/images/team/kato.jpg';
+import pic2 from './assets/images/team/chidera.jpg';
+import pic9 from './assets/images/team/thati.jpg';
+import pic12 from './assets/images/team//bella.jpg';
 
 
 const TEAM = [
