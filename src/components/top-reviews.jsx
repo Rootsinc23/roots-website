@@ -6,7 +6,7 @@ import j2 from "../assets/images/john2.webp";
 import j3 from "../assets/images/john3.webp";
 import j4 from "../assets/images/jane.jpg";
 import j5 from "../assets/images/jane2.jpg";
-import carousel1 from "../assets/images/carouselImg5.jpeg";
+import carousel1 from "../assets/images/chromeDots.jpg";
 
 const TopReviews = () => {
   return (
@@ -34,8 +34,8 @@ const TopReviews = () => {
               <h2 className="text-[1.6rem] pl-[.8rem] text-white sm:text-[2rem]">
                 Sarah Wilson
               </h2>
-              <p className="text-[purple]">Designer</p>
-              <p className="mt-[1rem] pl-[.8rem] text-[.8rem] sm:text-[1.1rem] text-white font-[100] text-left">
+              <p className="text-[#fff]">Designer</p>
+              <p className="p-6 text-center text-1xl font-bold text-white sm:text-2xl">
                 "Exceptional experience with R.O.O.T.S! They transformed our
                 vision into a sleek and efficient app. Their team is not just
                 skilled but also highly collaborative. Looking forward to more
@@ -65,8 +65,8 @@ const TopReviews = () => {
               <h2 className="text-[1.6rem] pl-[.8rem] text-white sm:text-[2rem]">
                 John Larson
               </h2>
-              <p className="text-[purple]">Entrepreneur</p>
-              <p className="mt-[1rem] pl-[.8rem] text-[.8rem] sm:text-[1.1rem] text-white font-[100] text-left">
+              <p className="text-[#fff]">Entrepreneur</p>
+              <p className="p-6 text-center text-1xl font-bold text-white sm:text-2xl">
                 "R.O.O.T.S exceeded our expectations! Their innovative solutions
                 and timely delivery showcase their commitment to excellence. Our
                 project was a success, thanks to their talented team."
@@ -95,8 +95,8 @@ const TopReviews = () => {
               <h2 className="text-[1.6rem] pl-[.8rem] text-white sm:text-[2rem]">
                 Elen Mei
               </h2>
-              <p className="text-[purple]">Data Analyst</p>
-              <p className="mt-[1rem] pl-[.8rem] text-[.8rem] sm:text-[1.1rem] text-white font-[100] text-left">
+              <p className="text-[#fff]">Data Analyst</p>
+              <p className="p-6 text-center text-1xl font-bold text-white sm:text-2xl">
                 "Choosing R.O.O.T.S was a game-changer for us. Their attention
                 to detail and dedication to client satisfaction are
                 unparalleled. Our website is now a testament to their technical
@@ -125,8 +125,8 @@ const TopReviews = () => {
               <h2 className="text-[1.6rem] pl-[.8rem] text-white sm:text-[2rem]">
                 Ahmed Qatar
               </h2>
-              <p className="text-[purple]">Freelancer</p>
-              <p className="mt-[1rem] pl-[.8rem] text-[.8rem] sm:text-[1.1rem] text-white font-[100] text-left">
+              <p className="text-[#fff]">Freelancer</p>
+              <p className="p-6 text-center text-1xl font-bold text-white sm:text-2xl">
                 "Working with R.O.O.T.S has been a delight. Their
                 professionalism, expertise, and creativity shine through in
                 every project. They listen to your needs and deliver top-notch
@@ -155,8 +155,8 @@ const TopReviews = () => {
               <h2 className="text-[2rem] pl-[.8rem] text-white sm:text-[2.2rem]">
                 Christian Kuma
               </h2>
-              <p className="text-[purple]">Entrepreneur</p>
-              <p className="mt-[1rem] pl-[.8rem] text-[.8rem] sm:text-[1.1rem] text-white font-[100] text-left">
+              <p className="text-[#fff]">Entrepreneur</p>
+              <p className="p-6 text-center text-1xl font-bold text-white sm:text-2xl">
                 "R.O.O.T.S is simply outstanding! Their team's ability to grasp
                 complex ideas and turn them into user-friendly applications is
                 remarkable. Collaborating with them was not just a project; it
