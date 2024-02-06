@@ -10,8 +10,8 @@ import carousel1 from "../assets/images/carouselImg5.jpeg";
 
 const TopReviews = () => {
   return (
-    <section className="relative z-0 mt-[2rem]">
-      <h2 className="text-center text-[2rem]">Top Reveiws</h2>
+    <section className="relative z-0 pt-[5%] dark:text-gray-100 dark:bg-slate-900">
+      <h2 className="text-center text-[2rem]">Top Reviews</h2>
       <div className="w-[120px] h-[3px] bg-[purple] mx-auto mt-[.5rem]"></div>
       <Carousel className="mt-[3rem]">
         <Carousel.Item>

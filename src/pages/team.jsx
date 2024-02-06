@@ -15,15 +15,15 @@ const Team = () => {
   };
 
   return (
-    <section className="mt-[2rem] px-[1rem] mb-[3rem]" id="team">
+    <section className="p-[5%] dark:text-gray-100 dark:bg-slate-900" id="team">
       <h2 className="text-center text-[2rem]">Our Team</h2>
       <div className="w-[120px] h-[2px] bg-[purple] mx-auto mt-[.3rem]"></div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1rem] mt-[2rem] mb-[1rem]">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1rem] mt-[2rem] mb-[1rem]">
         {TEAM.map((member, index) => (
           <div
             key={member.id}
-            className={`border-[1px] border-[#228b22] rounded-[.3rem] text-center shadow-md ${
+            className={`border-[1px] hover:text-white hover:bg-green-600 dark:hover:bg-[#143814] border-[#228b22] rounded-[.3rem] text-center ${
               !showAll && (index >= 4 && window.innerWidth < 640) ? "hidden lg:block" : ""
             }
             ${!showAll && index >= 6 && window.innerWidth >= 640 ? "hidden lg:block" : ""}
@@ -48,14 +48,14 @@ const Team = () => {
 
       {!showAll ? (
         <button
-          className="border-[.8px]  border-[purple] text-black py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden"
+          className="dark:text-white dark:bg-green-600 border-[.8px]  border-[purple] text-black py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden"
           onClick={toggleShowAll}
         >
           See More
         </button>
       ) : (
         <button
-          className="border-[.8px]  border-[purple] text-black py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden "
+          className="dark:text-white dark:bg-green-600 border-[.8px]  border-[purple] text-black py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden "
           onClick={toggleShowAll}
         >
           See Less
