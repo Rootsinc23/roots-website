@@ -26,7 +26,7 @@ const MyCarousel = () => {
                 optimized technology
               </p>
               <Link to="contact" smooth={true} duration={800}>
-                <button className="rounded-[.2rem] py-[.5rem] px-[.8rem] border-[.7px] border-[#228b22] text-white text-[.7rem] mt-[4rem]">
+                <button className="rounded-[.2rem] py-[.5rem] px-[.8rem] border-[.7px] border-[#228b22] text-white text-[.7rem] mt-[4rem] transition-all duration-300 transform hover:scale-105 hover:bg-[#228b22] hover:border-[#228b22] hover:shadow-md">
                   Get Started
                 </button>
               </Link>
@@ -49,7 +49,7 @@ const MyCarousel = () => {
                 Start building customer relationships now
               </p>
               <Link to="contact" smooth={true} duration={800}>
-                <button className="rounded-[.2rem] py-[.5rem] px-[.8rem] border-[.7px] border-[#228b22] text-white text-[.7rem] mt-[4rem]">
+                <button className="rounded-[.2rem] py-[.5rem] px-[.8rem] border-[.7px] border-[#228b22] text-white text-[.7rem] mt-[4rem] transition-all duration-300 transform hover:scale-105 hover:bg-[#228b22] hover:border-[#228b22] hover:shadow-md">
                   Get Started
                 </button>
               </Link>
@@ -73,7 +73,7 @@ const MyCarousel = () => {
                 activities.
               </p>
               <Link to="contact" smooth={true} duration={800}>
-                <button className="rounded-[.2rem] py-[.5rem] px-[.8rem] border-[.7px] border-[#228b22] text-white text-[.7rem] mt-[4rem]">
+                <button className="rounded-[.2rem] py-[.5rem] px-[.8rem] border-[.7px] border-[#228b22] text-white text-[.7rem] mt-[4rem] transition-all duration-300 transform hover:scale-105 hover:bg-[#228b22] hover:border-[#228b22] hover:shadow-md">
                   Get Started
                 </button>
               </Link>

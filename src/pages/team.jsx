@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 
 const Team = () => {
   useEffect(() => {
-    Aos.init({ duration: 2000 });
+    Aos.init({ duration: 1800 });
   }, []);
 
   const [showAll, setShowAll] = useState(false);
@@ -19,18 +19,20 @@ const Team = () => {
       <h2 className="text-center text-[2rem]">Our Team</h2>
       <div className="w-[120px] h-[2px] bg-[purple] mx-auto mt-[.3rem]"></div>
 
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1rem] mt-[2rem] mb-[1rem]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1rem] mt-[2rem] mb-[1rem]">
         {TEAM.map((member, index) => (
           <div
             key={member.id}
-            className={`border-[1px] hover:text-white hover:bg-green-600 dark:hover:bg-[#143814] border-[#228b22] rounded-[.3rem] text-center ${
-              !showAll && (index >= 4 && window.innerWidth < 640) ? "hidden lg:block" : ""
+            className={`border-[1px] group border-[#228b22] rounded-[.3rem] group text-center transform transition-transform duration-300 ${
+              !showAll && index >= 4 && window.innerWidth < 640
+                ? "hidden lg:block"
+                : ""
             }
             ${!showAll && index >= 6 && window.innerWidth >= 640 ? "hidden lg:block" : ""}
             `}
-            data-aos="fade-left"
+            data-aos="fade-right"
           >
-            <div>
+            <div className="group-hover:scale-110 transform transition-transform duration-300 hover:scale-110">
               <img
                 src={member.img}
                 alt=""
@@ -48,14 +50,14 @@ const Team = () => {
 
       {!showAll ? (
         <button
-          className="dark:text-white dark:bg-green-600 border-[.8px]  border-[purple] text-black py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden"
+          className="dark:text-white dark:bg-green-600 border-[.8px] border-[purple] text-white py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden transition duration-300 ease-in-out transform hover:scale-105"
           onClick={toggleShowAll}
         >
           See More
         </button>
       ) : (
         <button
-          className="dark:text-white dark:bg-green-600 border-[.8px]  border-[purple] text-black py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden "
+          className="dark:text-white dark:bg-green-600 border-[.8px] border-[purple] text-white py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden transition duration-300 ease-in-out transform hover:scale-105"
           onClick={toggleShowAll}
         >
           See Less

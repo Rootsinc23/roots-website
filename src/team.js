@@ -8,7 +8,9 @@ import pic10 from './assets/images/team//popi.jpg';
 import pic1 from './assets/images/team/kato.jpg';
 import pic2 from './assets/images/team/chidera.jpg';
 import pic9 from './assets/images/team/thati.jpg';
-import pic12 from './assets/images/team//bella.jpg';
+import pic12 from './assets/images/team/bella.jpg';
+import pic13 from './assets/images/team/eva.jpg';
+import pic14 from './assets/images/team/sam.jpg';
 
 
 const TEAM = [
@@ -70,7 +72,7 @@ const TEAM = [
 },
 {
     id: 9,
-    name: 'Koko',
+    name: 'Farouk',
     track: 'Data Specialist',
     role: 'Team lead',
     img: pic8
@@ -94,11 +96,15 @@ const TEAM = [
     name: 'Eva',
     track: 'Marketing Specialist',
     role: 'Lead',
-    // img: pic11
+    img: pic13
+},
+{
+    id: 13,
+    name: 'Sam',
+    track: 'Graphics designer',
+    role: 'Team Member',
+    img: pic14
 },
 
-
-
 ]
-
 export default TEAM;
