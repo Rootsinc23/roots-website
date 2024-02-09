@@ -58,7 +58,7 @@ const Form = () => {
         <div className="mb-[1.5rem]">
           <button
             type="submit"
-            className=" mb-5 text-[.9rem] dark:text-white bg-green-600 rounded-[.2rem] border-[.7px] border-[purple] text-black py-[.7rem] px-[1.6rem] font-[100]"
+            className=" mb-5 text-[.9rem] dark:text-white rounded-[.2rem] border-[.8px] border-[purple] text-black py-[.7rem] px-[1.6rem] font-[100]"
           >
             Send Message
           </button>

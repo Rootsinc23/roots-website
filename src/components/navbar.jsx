@@ -7,7 +7,7 @@ import { FaMoon, FaSun, FaDesktop } from "react-icons/fa";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "system" 
   );
   const element = document.documentElement;
   const darkQuery = window.matchMedia(("prefers-color-scheme: dark"));
@@ -80,6 +80,7 @@ const Navbar = () => {
     setActiveLink(link);
   };
 
+ 
   return (
     <header className="relative flex justify-between dark:text-gray-100 dark:bg-slate-900 items-center px-[.3rem] md:px-[1rem]">
       <img src={rootsLogo} alt="" width={150} />
@@ -87,8 +88,8 @@ const Navbar = () => {
       <nav
         className={
           showMenu
-            ? "flex-col absolute right-[1.5rem] top-[6.5rem] bg-[#33323d] text-center text-white w-[355px] h-[410px] py-[2.4rem] gap-[1.1rem] uppercase text-[.9rem] font-[100]"
-            : "md:flex md:items-center gap-[1rem] uppercase text-[.8rem] hidden z-30"
+            ? "flex-col absolute right-[.85rem] top-[6.5rem] bg-[#33323d] text-center text-white w-[355px] h-[410px] py-[2.4rem] gap-[1.1rem] uppercase text-[.9rem] font-[100] z-50"
+            : "md:flex md:items-center gap-[1rem] uppercase text-[.8rem] hidden "
         }
         style={{ display: showMenu && "flex" }}
       >
@@ -147,15 +148,16 @@ const Navbar = () => {
         </Link>
 
         <div>
-          {options?.map((opt) => (
-            <button
-              key={opt}
-              onClick={() => setTheme(opt.text)}
-              className={`w-7 h-7 duration-200 transition-all ${theme === opt.text && "text-sky-600"}`}
-            >
-              <ion-icon name={opt.icon}></ion-icon>
-            </button>
-          ))}
+        {options?.map((opt, index) => (
+         <button
+          key={index}
+          onClick={() => setTheme(opt.text)}
+          className={`w-7 h-7 duration-200 transition-all ${theme === opt.text && "text-sky-600"}`}
+         >
+         <ion-icon name={opt.icon}></ion-icon>
+        </button>
+      ))}
+
         </div>
       </nav>
 

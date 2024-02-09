@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { SiGithub, SiInstagram, SiLinkedin, SiX } from 'react-icons/si';
 
 const SocialMedia = () => {
   return (
@@ -21,32 +21,32 @@ const SocialMedia = () => {
         data-aos="fade-left"
       >
         <a
-          href="https://github.com/your-username"
+          href="https://github.com/R-O-O-T-S"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaGithub size={30} className="text-[#228b22]" />
+          <SiGithub size={30} className="text-[#228b22]" />
         </a>
         <a
-          href="https://twitter.com/your-username"
+          href="https://x.com/rootsinc2023?" 
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaTwitter size={30} className="text-[#228b22]" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/your-username"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaLinkedin size={30} className="text-[#228b22]" />
+          <SiX size={30} className="text-[#228b22]" />
         </a>
         <a
           href="https://www.linkedin.com/in/your-username"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaFacebook size={30} className="text-[#228b22]" />
+          <SiLinkedin size={30} className="text-[#228b22]" />
+        </a>
+        <a
+          href="https://www.instagram.com/rootsinc.2023/?"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SiInstagram size={30} className="text-[#228b22]" />
         </a>
       </div>
     </section>
