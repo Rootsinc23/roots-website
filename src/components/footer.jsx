@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import rootsLogo from "../assets/images/roots-logo.png";
-import { FaGithub, FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { SiGithub, SiInstagram, SiLinkedin, SiX } from 'react-icons/si';
 import { Link } from "react-scroll";
 
 const Footer = () => {
@@ -89,28 +89,28 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaGithub size={30} className="text-[#228b22]" />
+          <SiGithub size={30} className="text-[#228b22]" />
         </a>
         <a
-          href="https://twitter.com/rootsinc2023"
+          href="https://x.com/rootsinc2023?"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaTwitter size={30} className="text-[#228b22]" />
+          <SiX size={30} className="text-[#228b22]" />
         </a>
         <a
           href="https://www.linkedin.com/in/your-username"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaLinkedin size={30} className="text-[#228b22]" />
+          <SiLinkedin size={30} className="text-[#228b22]" />
         </a>
         <a
-          href="https://www.facebook.com/profile.php?id=61553877355125&mibextid=ZbWKwL"
+          href="https://www.instagram.com/rootsinc.2023/?"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaFacebook size={30} className="text-[#228b22]" />
+          <SiInstagram size={30} className="text-[#228b22]" />
         </a>
       </div>
 
