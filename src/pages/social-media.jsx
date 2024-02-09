@@ -7,7 +7,7 @@ const SocialMedia = () => {
       <h2 className="text-center text-[2rem]">Get In Touch</h2>
       <div className="w-[140px] h-[2px] bg-[purple] mx-auto mt-[.3rem]"></div>
 
-      <p className="mt-[1rem]" data-aos="fade-left">
+      <p className="" data-aos="fade-left">
         We’d love to hear about what you’re working on and how we could help.
         We’re currently looking and are open to a wide range of opportunities.
         We’re a hard-working and positive company that will always approach

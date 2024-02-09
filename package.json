@@ -1,5 +1,6 @@
 {
   "name": "roots-project-react",
+  "homepage": "http://rootswrld.com/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -50,6 +51,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/R-O-O-T-S/roots-website/issues"
-  },
-  "homepage": "https://github.com/R-O-O-T-S/roots-website#readme"
+  }
+  
 }
+
+

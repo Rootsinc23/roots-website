@@ -20,7 +20,7 @@ const Services = () => {
     <section className=" px-[1rem] pt-[5%] dark:text-gray-100 dark:bg-slate-900" id="services">
       <h2 className="text-center text-[2rem]">Our Services</h2>
       <div className="w-[130px] h-[2px] bg-[purple] mx-auto mt-[.3rem]"></div>
-      <h1 className="text-center mt-3">Services that Redefine Excellence</h1>
+      <h1 className="text-center font-josefinSans mt-3">Services that Redefine Excellence</h1>
       <div
         data-aos="fade-in"
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-[100%] p-6 gap-[4rem] mt-[1rem] mb-[1rem]"

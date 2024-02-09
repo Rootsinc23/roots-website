@@ -16,7 +16,7 @@ const Footer = () => {
         data-aos="fade-left"
       >
         <img src={rootsLogo} alt="" width={130} className="mx-auto sm:mx-0" />
-        <p className="text-[.8rem] p-7 hidden">
+        <p className="text-[.8rem] p-7 relative hidden">
           As R.O.O.T.S continues to grow, it remains dedicated to its mission of
           unearthing potential, solving problems, and leaving a lasting impact
           on the world through the power of technology. This startup is not just
@@ -28,7 +28,7 @@ const Footer = () => {
           <Link to="home" smooth={true} duration={800}>
             <p
               onClick={() => handleLinkClick("home")}
-              className={activeLink === "home" ? "active" : ""}
+              className={`cursor-pointer ${activeLink === "home" ? "active" : ""} transition-colors duration-300 hover:text-[#228b22]`}
             >
               Home
             </p>
@@ -37,7 +37,7 @@ const Footer = () => {
           <Link to="about" smooth={true} duration={800}>
             <p
               onClick={() => handleLinkClick("about")}
-              className={activeLink === "about" ? "active" : ""}
+              className={`cursor-pointer ${activeLink === "about" ? "active" : ""} transition-colors duration-300 hover:text-[#228b22]`}
             >
               About
             </p>
@@ -46,7 +46,7 @@ const Footer = () => {
           <Link to="services" smooth={true} duration={800}>
             <p
               onClick={() => handleLinkClick("services")}
-              className={activeLink === "services" ? "active" : ""}
+              className={`cursor-pointer ${activeLink === "services" ? "active" : ""} transition-colors duration-300 hover:text-[#228b22]`}
             >
               Services
             </p>
@@ -55,7 +55,7 @@ const Footer = () => {
           <Link to="team" smooth={true} duration={800}>
             <p
               onClick={() => handleLinkClick("team")}
-              className={activeLink === "team" ? "active" : ""}
+              className={`cursor-pointer ${activeLink === "team" ? "active" : ""} transition-colors duration-300 hover:text-[#228b22]`}
             >
               Team
             </p>
@@ -64,7 +64,7 @@ const Footer = () => {
           <Link to="social-media" smooth={true} duration={800}>
             <p
               onClick={() => handleLinkClick("social media")}
-              className={activeLink === "social media" ? "active" : ""}
+              className={`cursor-pointer ${activeLink === "social-media" ? "active" : ""} transition-colors duration-300 hover:text-[#228b22]`}
             >
               Social Media
             </p>
@@ -73,7 +73,7 @@ const Footer = () => {
           <Link to="contact" smooth={true} duration={800}>
             <p
               onClick={() => handleLinkClick("contact")}
-              className={activeLink === "contact" ? "active" : ""}
+              className={`cursor-pointer ${activeLink === "contact" ? "active" : ""} transition-colors duration-300 hover:text-[#228b22]`}
             >
               Contact
             </p>
@@ -85,14 +85,14 @@ const Footer = () => {
         data-aos="fade-left"
       >
         <a
-          href="https://github.com/your-username"
+          href="https://github.com/Rootsinc23"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaGithub size={30} className="text-[#228b22]" />
         </a>
         <a
-          href="https://twitter.com/your-username"
+          href="https://twitter.com/rootsinc2023"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -106,7 +106,7 @@ const Footer = () => {
           <FaLinkedin size={30} className="text-[#228b22]" />
         </a>
         <a
-          href="https://www.linkedin.com/in/your-username"
+          href="https://www.facebook.com/profile.php?id=61553877355125&mibextid=ZbWKwL"
           target="_blank"
           rel="noopener noreferrer"
         >

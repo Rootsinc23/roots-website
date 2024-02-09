@@ -6,7 +6,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        spaceGrotesk :["Space Grotesk", "sans-serif"],
+        josefinSans :["Josefin Sans", "sans-serif"]
+
+      }
+    },
   },
   plugins: [
     // require('tailwind-scrollbar')
