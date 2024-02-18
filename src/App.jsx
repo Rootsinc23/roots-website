@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      {/* <Preloader /> */}
+      <Preloader /> 
 
       <Home />
       <About />
