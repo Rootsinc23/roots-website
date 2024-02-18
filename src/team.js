@@ -11,6 +11,7 @@ import pic9 from './assets/images/team/thati.jpg';
 import pic12 from './assets/images/team/bella.jpg';
 import pic13 from './assets/images/team/eva.jpg';
 import pic14 from './assets/images/team/sam.jpg';
+import pic15 from './assets/images/team/aman.png';
 
 
 const TEAM = [
@@ -104,6 +105,13 @@ const TEAM = [
     track: 'Graphics designer',
     role: 'Team Member',
     img: pic14
+},
+{
+    id: 14,
+    name: 'Aman Mishra',
+    track: 'Frontend Developer',
+    role: 'Team Member',
+    img: pic15
 },
 
 ]
