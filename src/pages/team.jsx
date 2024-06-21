@@ -42,7 +42,7 @@ const Team = () => {
             <div className="p-4 text-left ">
               <p>Name: {member.name}</p>
               <p>Track: {member.track}</p>
-              <p>Role: {member.role}</p>
+              <p>Role: {member.role}</p>``
             </div>
           </div>
         ))}
@@ -50,7 +50,7 @@ const Team = () => {
 
       {!showAll ? (
         <button
-          className="dark:text-white dark:bg-green-600 border-[.8px] border-[purple] text-white py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden transition duration-300 ease-in-out transform hover:scale-105"
+          className="dark:text-white dark:bg-green-600 border-[.8px] bg-green-600 border-[purple] text-white py-[.5rem] px-4 rounded-[.2rem] mt-4 mx-auto block focus:outline-0 lg:hidden transition duration-300 ease-in-out transform hover:scale-105"
           onClick={toggleShowAll}
         >
           See More

@@ -1,15 +1,25 @@
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Form = () => {
-  const handleInputChange = (e) => {
-    // input change handling logic goes here
-  };
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async(event) => {
+    event.preventDefault();
+    const user = {name, email, message};
+
+    try{
+      const response = await axios.post('http://localhost:8080/api/newsletter', user)
+    }
+  }
 
   return (
     <div className="mt-[2rem] px-[.5rem] dark:text-gray-100 dark:bg-slate-900">
       <form
-        action=""
-        method="POST"
+        action="newsletter.php"
+        method="post"
         className="mt-[1.5rem]"
         data-aos="fade-up"
       >

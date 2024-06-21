@@ -4,11 +4,9 @@ import pic5 from './assets/images/team/amara.jpg';
 import pic6 from './assets/images/team/didi.jpg';
 import pic7 from './assets/images/team/victory.jpg';
 import pic8 from './assets/images/team/koko.jpg';
-import pic10 from './assets/images/team//popi.jpg';
 import pic1 from './assets/images/team/kato.jpg';
 import pic2 from './assets/images/team/chidera.jpg';
 import pic9 from './assets/images/team/thati.jpg';
-import pic12 from './assets/images/team/bella.jpg';
 import pic13 from './assets/images/team/eva.jpg';
 import pic14 from './assets/images/team/sam.jpg';
 import pic15 from './assets/images/team/aman.png';
@@ -66,48 +64,34 @@ const TEAM = [
 },
 {
     id: 8,
-    name: 'Bella',
-    track: 'Ui/Ux Designer',
-    role: 'Team member',
-    img: pic12
-},
-{
-    id: 9,
     name: 'Farouk',
     track: 'Data Specialist',
     role: 'Team lead',
     img: pic8
 },
 {
-    id: 10,
+    id: 9,
     name: 'Thati',
     track: 'Backend Developer',
     role: 'Team member',
     img: pic9
 },
 {
-    id: 11,
-    name: 'Popi',
-    track: 'Product Manager',
-    role: 'Lead',
-    img: pic10
-},
-{
-    id: 12,
+    id: 10,
     name: 'Eva',
     track: 'Marketing Specialist',
     role: 'Lead',
     img: pic13
 },
 {
-    id: 13,
+    id: 11,
     name: 'Sam',
     track: 'Graphics designer',
     role: 'Team Member',
     img: pic14
 },
 {
-    id: 14,
+    id: 12,
     name: 'Aman Mishra',
     track: 'Frontend Developer',
     role: 'Team Member',
