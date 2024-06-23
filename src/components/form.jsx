@@ -6,19 +6,22 @@ const Form = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const user = {name, email, message};
+    const user = { name, email, message };
 
-    try{
-      const response = await axios.post('http://localhost:8080/api/newsletter', user)
+    try {
+      const response = await axios.post('http://localhost:8080/api/newsletter/save', user);
+      console.log(response.data);
+    } catch (error) {
+      console.log('There was an error creating the user!', error);
     }
-  }
+  };
 
   return (
     <div className="mt-[2rem] px-[.5rem] dark:text-gray-100 dark:bg-slate-900">
       <form
-        action="newsletter.php"
+        onSubmit={handleSubmit}
         method="post"
         className="mt-[1.5rem]"
         data-aos="fade-up"
@@ -29,7 +32,9 @@ const Form = () => {
           </label>
           <input
             type="text"
-            placeholder="Jane Appleseed"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="John Miles"
             name="name"
             id="name"
             aria-label="name"
@@ -43,6 +48,8 @@ const Form = () => {
           </label>
           <input
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="email@example.com"
             name="email"
             id="email"
@@ -58,9 +65,10 @@ const Form = () => {
           <textarea
             placeholder="How can we help?"
             name="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             id="message"
             aria-label="message"
-            onChange={handleInputChange}
             className="text-black w-full py-[1.3rem] px-[.5rem] focus:outline-none bg-[#ddd] mt-[.5rem]"
           />
         </div>
