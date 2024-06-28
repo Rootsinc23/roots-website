@@ -1,20 +1,37 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Modal, Button, ModalFooter } from "react-bootstrap";
 
 const Form = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const user = { name, email, message };
 
+    if(!name || !email || !message){
+      setShowModal(true);
+      setModalMessage('All fields are required');
+      return;
+    }
+
+
     try {
       const response = await axios.post('http://localhost:8080/api/newsletter/save', user);
-      console.log(response.data);
+      setModalMessage(`Thank you ${name} , for your feedback. We will respond to you shortly`);
+      setShowModal(true);
+      setName('');
+      setEmail('');
+      setMessage('');
     } catch (error) {
-      console.log('There was an error creating the user!', error);
+      setModalMessage('There was a problem saving your information');
+      setShowModal(true);
+      console.log('There was an error creating the user!', error.message);
     }
   };
 
@@ -82,6 +99,15 @@ const Form = () => {
           </button>
         </div>
       </form>
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>{modalMessage}</Modal.Body>
+        <ModalFooter>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Close
+          </Button>
+        </ModalFooter>
+      </Modal>
     </div>
   );
 };
