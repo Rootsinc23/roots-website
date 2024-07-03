@@ -42,7 +42,7 @@ const Team = () => {
             <div className="p-4 text-left ">
               <p>Name: {member.name}</p>
               <p>Track: {member.track}</p>
-              <p>Role: {member.role}</p>``
+              <p>Role: {member.role}</p>
             </div>
           </div>
         ))}

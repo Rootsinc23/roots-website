@@ -7,33 +7,67 @@ const Form = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  const [savedName, setSavedName] = useState('');
+  const [savedEmail, setSavedEmail] = useState('');
+
+  const [subName, setSubName] = useState('');
+  const [subEmail, setSubEmail] = useState('');
+
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
+  const [isSuccessful, setIsSuccessful] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const user = { name, email, message };
 
-    if(!name || !email || !message){
+    if (!name || !email || !message) {
       setShowModal(true);
       setModalMessage('All fields are required');
+      setIsSuccessful(false);
       return;
     }
 
 
     try {
       const response = await axios.post('http://localhost:8080/api/newsletter/save', user);
-      setModalMessage(`Thank you ${name} , for your feedback. We will respond to you shortly`);
+      // Set Modal to display with a message
       setShowModal(true);
+      setModalMessage(`Hey ${name}! 🌟 Thanks a bunch for reaching out! Your feedback is like a ray of sunshine to us. 😊 We'll get back to you soon. Want to stay in the loop? Hit subscribe!`);
+      setIsSuccessful(true);
+
+      // save name and email before clearing the fields
+      setSavedName(name);
+      setSavedEmail(email);
+
+      // Set input fields to '' after data is saved
       setName('');
       setEmail('');
       setMessage('');
+      // catches error for smooth webflow
     } catch (error) {
-      setModalMessage('There was a problem saving your information');
+      setModalMessage('Oops! Something went wrong. Please try again later.');
       setShowModal(true);
       console.log('There was an error creating the user!', error.message);
     }
   };
+
+  const subUser = async () => {
+    try {
+      const subscriber = { name: savedName, email: savedEmail };
+      const sub = await axios.post('http://localhost:8080/api/subscriber/save', subscriber);
+      // setShowModal(true);
+      setModalMessage(`Yay! 🎉 You've subscribed successfully, ${name}! Get ready for awesome updates and goodies straight to your inbox. 📨`);
+      setIsSuccessful(false);
+    } catch (error) {
+      setModalMessage('Oops! Something went wrong. Please try again later.')
+      console.log(error.message);
+    }
+  }
+
+
+
+
 
   return (
     <div className="mt-[2rem] px-[.5rem] dark:text-gray-100 dark:bg-slate-900">
@@ -86,7 +120,7 @@ const Form = () => {
             onChange={(e) => setMessage(e.target.value)}
             id="message"
             aria-label="message"
-            className="text-black w-full py-[1.3rem] px-[.5rem] focus:outline-none bg-[#ddd] mt-[.5rem]"
+            className="text-black w-full py-[.8rem] px-[.5rem] leading-tight focus:outline-none bg-[#ddd] mt-[.5rem]gt"
           />
         </div>
 
@@ -100,14 +134,24 @@ const Form = () => {
         </div>
       </form>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>{modalMessage}</Modal.Body>
-        <ModalFooter>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
+        <Modal.Header className="bg-gradient-to-r from-purple-600 to-green-600 text-white">
+          <h5 className="mx-auto">R.O.O.T.S</h5>
+        </Modal.Header>
+        <Modal.Body className="bg-slate-900 text-white py-6 px-8 rounded-lg shadow-lg">
+          {modalMessage}
+        </Modal.Body>
+        <Modal.Footer className="bg-slate-900 flex justify-end">
+          <Button variant="secondary" className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded" onClick={() => setShowModal(false)}>
             Close
           </Button>
-        </ModalFooter>
+          {isSuccessful && (
+            <Button variant="primary" className="bg-green-500 hover:bg-green-500 text-white py-2 px-4 ml-3 rounded" onClick={subUser}>
+              Subscribe
+            </Button>
+          )}
+        </Modal.Footer>
       </Modal>
+
     </div>
   );
 };
