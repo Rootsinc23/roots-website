@@ -31,7 +31,7 @@ const Scrollup = () => {
       {isVisible &&
       <button
         onClick={scrollToTop}
-        className="text-[#fff] dark:text-slate-900 hover-scale ease-in-out transition-all duration-4000  hover:pb-2 justify-center bg-green-600 rounded-5 h-10 w-10"
+        className="text-white dark:text-white hover-scale ease-in-out transition-all duration-300 hover:pb-1 justify-center bg-green-600 rounded-5 h-10 w-10"
       >
         <FaArrowUp size={20} className="mx-auto" />
       </button>

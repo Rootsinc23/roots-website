@@ -6,99 +6,52 @@ const tl = gsap.timeline();
 
 // Preloader Animation
 export const preLoaderAnim = () => {
-  tl.to("body", {
-    duration: 0.1,
-    css: { overflowY: "hidden" },
-    ease: "power3.inOut",
-  })
-    .to(".landing", {
-      duration: 0.05,
-      css: { overflowY: "hidden", height: "90vh" },
-    })
-    .to(".texts-container", {
-      duration: 0,
-      opacity: 1,
-      ease: "Power3.easeOut",
-    })
-    .from(".texts-container span", {
-      duration: 1.5,
-      delay: 1,
-      y: 70,
-      skewY: 10,
-      stagger: 0.4,
-      ease: "Power3.easeOut",
-    })
-    .to(".texts-container span", {
-      duration: 1,
-      y: 70,
-      skewY: -20,
-      stagger: 0.2,
-      ease: "Power3.easeOut",
-    })
+  const introTl = gsap.timeline({
+    defaults: { ease: "power3.out" },
+    onStart: () => {
+      gsap.set("body", { overflow: "hidden" });
+      gsap.set(".preloader", { display: "flex", opacity: 1 });
+    },
+    onComplete: () => {
+      gsap.set("body", { overflowY: "auto" });
+      gsap.set(".preloader", { display: "none", clearProps: "opacity" });
+    },
+  });
 
-    .to(".landing", {
-      duration: 0.05,
-      css: { overflowY: "hidden", height: "unset" },
-    })
-    .to("body", {
-      duration: 0.1,
-      css: { overflowY: "scroll" },
-      ease: "power3.inOut",
-    })
-    .from(".landing__top .sub", {
-      duration: 1,
-      opacity: 0,
-      y: 80,
-      ease: "expo.easeOut",
-    })
-    .to(
-      ".preloader",
-      {
-        duration: 1.5,
-        height: "0vh",
-        ease: "Power3.easeOut",
-        onComplete: mobileLanding(),
-      },
-      "-=2"
+  introTl
+    .fromTo(
+      ".preloader__frame",
+      { opacity: 0, y: 26, scale: 0.985 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.72 },
     )
-    .from(".landing__main .text", {
-      duration: 2,
-      // scale: 0,
-      y: 10,
-      opacity: 0,
-      stagger: {
-        amount: 2,
+    .from(".preloader__core", { opacity: 0, scale: 0.8, duration: 0.48 }, "-=0.5")
+    .from([".preloader__brand", ".preloader__tagline"], { opacity: 0, y: 10, stagger: 0.08, duration: 0.32 }, "-=0.22")
+    .from(".preloader__status", { opacity: 0, y: 10, duration: 0.3 }, "-=0.2")
+    .from(".preloader__progress-track", { opacity: 0, duration: 0.22 }, "-=0.16")
+    .fromTo(
+      ".preloader__progress-fill",
+      { scaleX: 0 },
+      { scaleX: 1, duration: 1.7, ease: "power2.inOut" },
+    )
+    .to(
+      ".preloader__status-stack",
+      {
+        yPercent: -200,
+        duration: 1.35,
+        ease: "power1.inOut",
       },
-      ease: "power3.easeInOut",
-    })
-    .from(".links .item", {
-      duration: 0.5,
-      opacity: 0,
-      delay: window.innerWidth < 763 ? -3 : -0.6,
-      // y: 80,
-      stagger: {
-        amount: 0.5,
-      },
-      ease: "expo.easeOut",
-      onComplete: animateMainShape(),
-    })
-    .from(".main-circle", {
-      duration: 1,
-      opacity: 0,
-      ease: "power3.easeInOut",
-      onComplete: animateShapes(),
-    })
-    .from(".shapes .shape", {
-      duration: 1,
-      opacity: 0,
-      delay: -1,
-      ease: "power3.easeInOut",
-      stagger: 1,
-    })
-    .to(".preloader", {
-      duration: 0,
-      css: { display: "none" },
-    });
+      "-=1.6",
+    )
+    .fromTo(
+      ".preloader__progress-glow",
+      { xPercent: -120 },
+      { xPercent: 430, duration: 1.1, ease: "power2.inOut" },
+      "-=1.1",
+    )
+    .to(".preloader__frame", { opacity: 0, scale: 0.985, duration: 0.38, ease: "power2.inOut" }, "+=0.12")
+    .to(".preloader", { opacity: 0, duration: 0.5, ease: "power2.out" }, "-=0.14");
+
+  return introTl;
 };
 
 export const openMenu = () => {
@@ -208,70 +161,6 @@ export const mobileLanding = () => {
       delay: 0,
       opacity: 0,
       y: 80,
-      ease: "expo.easeOut",
-    });
-};
-
-const animateShapes = () => {
-  const infiniteTl = gsap.timeline({
-    repeat: -1,
-  });
-  infiniteTl
-    .to(".shapes .shape", {
-      duration: 4,
-      rotate: 360,
-      delay: -1,
-      ease: "power3.easeInOut",
-      stagger: 2,
-    })
-    .to(".shapes .shape-3", {
-      duration: 1,
-      rotate: 360,
-      delay: -2,
-      ease: "power3.easeInOut",
-    })
-    .to(".shapes .shape", {
-      duration: 3,
-      rotate: 0,
-      ease: "power3.easeInOut",
-      stagger: 1,
-    })
-    .to(".shapes .shape", {
-      duration: 1,
-      opacity: 0,
-      delay: -1,
-      ease: "power3.easeInOut",
-      stagger: 1,
-    })
-    .to(".shapes .shape", {
-      duration: 1.5,
-      opacity: 1,
-      ease: "power3.easeInOut",
-      stagger: 1,
-    });
-};
-
-const animateMainShape = () => {
-  const infiniteTl = gsap.timeline({
-    repeat: -1,
-  });
-  infiniteTl
-    .to(".shapes .main-circle", {
-      duration: 6,
-      x: -30,
-      y: -50,
-      ease: "expo.easeOut",
-    })
-    .to(".shapes .main-circle", {
-      duration: 6,
-      x: -30,
-      y: 50,
-      ease: "expo.easeOut",
-    })
-    .to(".shapes .main-circle", {
-      duration: 4,
-      x: 0,
-      y: 0,
       ease: "expo.easeOut",
     });
 };

@@ -19,4 +19,254 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
 
+html:not(.dark) body {
+  background:
+    radial-gradient(1100px 520px at 7% 3%, rgba(139, 92, 246, 0.07), transparent 58%),
+    radial-gradient(980px 460px at 92% 9%, rgba(16, 185, 129, 0.1), transparent 60%),
+    linear-gradient(180deg, #edf2ff 0%, #e9efff 56%, #e8f4ef 100%);
+  color: #0f172a;
+}
+
+html.dark body {
+  background:
+    radial-gradient(1320px 720px at 6% 2%, rgba(124, 58, 237, 0.16), transparent 58%),
+    radial-gradient(1200px 680px at 96% 8%, rgba(16, 185, 129, 0.14), transparent 62%),
+    linear-gradient(180deg, #040811 0%, #060f1d 46%, #07131a 100%);
+  color: #e2e8f0;
+}
+
+.roots-page {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(1200px 460px at 0% 0%, rgba(124, 58, 237, 0.07), transparent 62%),
+    radial-gradient(1200px 460px at 100% 100%, rgba(16, 185, 129, 0.08), transparent 62%);
+}
+
+html.dark .roots-page {
+  background:
+    radial-gradient(1300px 520px at 0% 0%, rgba(124, 58, 237, 0.1), transparent 64%),
+    radial-gradient(1300px 520px at 100% 100%, rgba(16, 185, 129, 0.1), transparent 64%);
+}
+
+.roots-section {
+  position: relative;
+  isolation: isolate;
+  --section-bg-a: 246 249 255;
+  --section-bg-b: 237 244 255;
+  --section-purple: 124 58 237;
+  --section-green: 16 185 129;
+  --section-spot-a-x: 14%;
+  --section-spot-a-y: 20%;
+  --section-spot-b-x: 86%;
+  --section-spot-b-y: 82%;
+  --section-color-opacity: 0.09;
+  margin-top: -1px;
+  background:
+    radial-gradient(
+      1000px 360px at var(--section-spot-a-x) var(--section-spot-a-y),
+      rgba(var(--section-purple), var(--section-color-opacity)),
+      transparent 66%
+    ),
+    radial-gradient(
+      1000px 360px at var(--section-spot-b-x) var(--section-spot-b-y),
+      rgba(var(--section-green), var(--section-color-opacity)),
+      transparent 68%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(var(--section-bg-a), 0.88) 0%,
+      rgba(var(--section-bg-a), 0.78) 24%,
+      rgba(var(--section-bg-b), 0.76) 76%,
+      rgba(var(--section-bg-b), 0.88) 100%
+    );
+}
+
+.roots-section .fx-title-glow {
+  color: #0f172a;
+}
+
+html.dark .roots-section .fx-title-glow {
+  color: #f8fafc;
+}
+
+.roots-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(var(--section-bg-a), 0.38) 0%,
+      rgba(var(--section-bg-a), 0.08) 12%,
+      rgba(var(--section-bg-a), 0) 26%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(var(--section-bg-b), 0.38) 0%,
+      rgba(var(--section-bg-b), 0.08) 12%,
+      rgba(var(--section-bg-b), 0) 26%
+    );
+  opacity: 0.62;
+}
+
+.roots-section + .roots-section::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(var(--section-bg-a), 0.46) 0%,
+      rgba(var(--section-bg-a), 0.12) 16%,
+      rgba(var(--section-bg-a), 0) 34%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(var(--section-bg-b), 0.34) 0%,
+      rgba(var(--section-bg-b), 0.08) 12%,
+      rgba(var(--section-bg-b), 0) 24%
+    );
+  opacity: 0.72;
+}
+
+.roots-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--section-purple), 0.025) 0%,
+    rgba(var(--section-green), 0.025) 100%
+  );
+  opacity: 0.7;
+}
+
+html.dark .roots-section {
+  --section-bg-a: 8 13 24;
+  --section-bg-b: 6 11 22;
+  --section-color-opacity: 0.13;
+  background:
+    radial-gradient(
+      1080px 380px at var(--section-spot-a-x) var(--section-spot-a-y),
+      rgba(var(--section-purple), var(--section-color-opacity)),
+      transparent 66%
+    ),
+    radial-gradient(
+      1080px 380px at var(--section-spot-b-x) var(--section-spot-b-y),
+      rgba(var(--section-green), var(--section-color-opacity)),
+      transparent 68%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(var(--section-bg-a), 0.9) 0%,
+      rgba(var(--section-bg-a), 0.84) 24%,
+      rgba(var(--section-bg-b), 0.82) 76%,
+      rgba(var(--section-bg-b), 0.92) 100%
+    );
+}
+
+html.dark .roots-section::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.012) 12%,
+      rgba(255, 255, 255, 0) 26%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(8, 13, 24, 0.42) 0%,
+      rgba(8, 13, 24, 0.12) 12%,
+      rgba(8, 13, 24, 0) 26%
+    );
+  opacity: 0.86;
+}
+
+html.dark .roots-section + .roots-section::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.015) 15%,
+      rgba(255, 255, 255, 0) 30%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(8, 13, 24, 0.46) 0%,
+      rgba(8, 13, 24, 0.14) 12%,
+      rgba(8, 13, 24, 0) 24%
+    );
+  opacity: 0.92;
+}
+
+html.dark .roots-section::after {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--section-purple), 0.05) 0%,
+    rgba(var(--section-green), 0.05) 100%
+  );
+  opacity: 0.78;
+}
+
+.roots-section[data-tone="about"] {
+  --section-spot-a-x: 12%;
+  --section-spot-a-y: 18%;
+  --section-spot-b-x: 88%;
+  --section-spot-b-y: 80%;
+}
+
+.roots-section[data-tone="services"] {
+  --section-spot-a-x: 20%;
+  --section-spot-a-y: 78%;
+  --section-spot-b-x: 82%;
+  --section-spot-b-y: 24%;
+}
+
+.roots-section[data-tone="impact"] {
+  --section-spot-a-x: 16%;
+  --section-spot-a-y: 18%;
+  --section-spot-b-x: 84%;
+  --section-spot-b-y: 82%;
+}
+
+.roots-section[data-tone="program"] {
+  --section-purple: 109 40 217;
+  --section-green: 5 150 105;
+  --section-spot-a-x: 10%;
+  --section-spot-a-y: 24%;
+  --section-spot-b-x: 90%;
+  --section-spot-b-y: 76%;
+}
+
+.roots-section[data-tone="social"] {
+  --section-purple: 126 34 206;
+  --section-green: 13 148 136;
+  --section-spot-a-x: 18%;
+  --section-spot-a-y: 70%;
+  --section-spot-b-x: 82%;
+  --section-spot-b-y: 20%;
+}
+
+.roots-section[data-tone="reviews"] {
+  --section-purple: 139 92 246;
+  --section-green: 16 185 129;
+  --section-spot-a-x: 12%;
+  --section-spot-a-y: 18%;
+  --section-spot-b-x: 86%;
+  --section-spot-b-y: 82%;
+}
+
+.roots-section[data-tone="contact"] {
+  --section-purple: 124 58 237;
+  --section-green: 5 150 105;
+  --section-spot-a-x: 18%;
+  --section-spot-a-y: 80%;
+  --section-spot-b-x: 82%;
+  --section-spot-b-y: 16%;
+}

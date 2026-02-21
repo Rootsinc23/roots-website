@@ -1,84 +1,175 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { Modal, Button, ModalFooter } from "react-bootstrap";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { FiAlertCircle, FiCheckCircle, FiMail, FiX } from "react-icons/fi";
+import {
+  SUPPORT_EMAIL,
+  WHATSAPP_NUMBER,
+  getApiErrorMessage,
+  submitContact,
+} from "../service/api";
 
 const Form = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toasts, setToasts] = useState([]);
+  const toastTimersRef = useRef(new Map());
 
-  const [savedName, setSavedName] = useState('');
-  const [savedEmail, setSavedEmail] = useState('');
+  const supportMessage = useMemo(() => {
+    const contactName = name.trim() || "there";
+    const contactMessage = message || "I would like to discuss a project with ROOTS.";
+    return encodeURIComponent(`Hi ROOTS, my name is ${contactName}. ${contactMessage}`);
+  }, [message, name]);
 
-  const [subName, setSubName] = useState('');
-  const [subEmail, setSubEmail] = useState('');
+  const supportEmailUrl = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent("ROOTS Project Inquiry")}&body=${supportMessage}`;
+  const whatsappNumber = WHATSAPP_NUMBER.replace(/[^\d]/g, "");
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${supportMessage}`;
 
-  const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState('');
-  const [isSuccessful, setIsSuccessful] = useState(false);
+  const dismissToast = useCallback((id) => {
+    setToasts((prev) => prev.filter((toast) => toast.id !== id));
+    const timer = toastTimersRef.current.get(id);
+    if (timer) {
+      window.clearTimeout(timer);
+      toastTimersRef.current.delete(id);
+    }
+  }, []);
+
+  const pushToast = useCallback(
+    ({ type, title, message: toastMessage, showFallbackActions = false }) => {
+      const id = `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+
+      setToasts((prev) => [...prev, { id, type, title, message: toastMessage, showFallbackActions }]);
+
+      const timer = window.setTimeout(() => dismissToast(id), 5000);
+      toastTimersRef.current.set(id, timer);
+    },
+    [dismissToast],
+  );
+
+  useEffect(
+    () => () => {
+      toastTimersRef.current.forEach((timer) => window.clearTimeout(timer));
+      toastTimersRef.current.clear();
+    },
+    [],
+  );
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const user = { name, email, message };
 
-    if (!name || !email || !message) {
-      setShowModal(true);
-      setModalMessage('All fields are required');
-      setIsSuccessful(false);
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedMessage = message.trim();
+
+    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+      pushToast({
+        type: "error",
+        title: "Missing fields",
+        message: "Please fill in name, email, and message.",
+      });
       return;
     }
 
+    setIsSubmitting(true);
 
     try {
-      const response = await axios.post('http://localhost:8080/api/newsletter/save', user);
-      // Set Modal to display with a message
-      setShowModal(true);
-      setModalMessage(`Hey ${name}! 🌟 Thanks a bunch for reaching out! Your feedback is like a ray of sunshine to us. 😊 We'll get back to you soon. Want to stay in the loop? Hit subscribe!`);
-      setIsSuccessful(true);
+      const result = await submitContact({
+        name: trimmedName,
+        email: trimmedEmail,
+        message: trimmedMessage,
+        source: "roots-website",
+      });
 
-      // save name and email before clearing the fields
-      setSavedName(name);
-      setSavedEmail(email);
+      pushToast({
+        type: "success",
+        title: "Message sent",
+        message: result?.message || `Thanks ${trimmedName}. We will reach out shortly.`,
+      });
 
-      // Set input fields to '' after data is saved
-      setName('');
-      setEmail('');
-      setMessage('');
-      // catches error for smooth webflow
+      setName("");
+      setEmail("");
+      setMessage("");
     } catch (error) {
-      setModalMessage('Oops! Something went wrong. Please try again later.');
-      setShowModal(true);
-      console.log('There was an error creating the user!', error.message);
+      const apiMessage = getApiErrorMessage(error, "We could not submit your message right now.");
+
+      pushToast({
+        type: "error",
+        title: "Message not sent",
+        message: apiMessage,
+        showFallbackActions: true,
+      });
+
+      console.error("Unable to submit contact form:", error?.message || error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  const subUser = async () => {
-    try {
-      const subscriber = { name: savedName, email: savedEmail };
-      const sub = await axios.post('http://localhost:8080/api/subscriber/save', subscriber);
-      // setShowModal(true);
-      setModalMessage(`Yay! 🎉 You've subscribed successfully, ${name}! Get ready for awesome updates and goodies straight to your inbox. 📨`);
-      setIsSuccessful(false);
-    } catch (error) {
-      setModalMessage('Oops! Something went wrong. Please try again later.')
-      console.log(error.message);
-    }
-  }
-
-
-
-
-
   return (
-    <div className="mt-[2rem] px-[.5rem] dark:text-gray-100 dark:bg-slate-900">
-      <form
-        onSubmit={handleSubmit}
-        method="post"
-        className="mt-[1.5rem]"
-        data-aos="fade-up"
-      >
-        <div className="mb-[1rem]">
-          <label htmlFor="name" className="block text-left font-bold">
+    <div className="mt-4 text-slate-900 dark:text-slate-100">
+      <div className="pointer-events-none fixed right-4 top-24 z-[90] flex w-[min(92vw,360px)] flex-col gap-3 sm:right-6">
+        {toasts.map((toast) => {
+          const isSuccess = toast.type === "success";
+          return (
+            <div
+              key={toast.id}
+              className={`pointer-events-auto rounded-2xl border px-4 py-3 text-sm backdrop-blur-xl shadow-[0_16px_38px_rgba(15,23,42,0.26)] ${
+                isSuccess
+                  ? "border-emerald-300/45 bg-emerald-400/16 text-emerald-50"
+                  : "border-rose-300/50 bg-rose-400/16 text-rose-50"
+              }`}
+            >
+              <div className="flex items-start gap-3">
+                <span
+                  className={`mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${
+                    isSuccess ? "bg-emerald-300/22 text-emerald-200" : "bg-rose-300/24 text-rose-200"
+                  }`}
+                >
+                  {isSuccess ? <FiCheckCircle size={14} /> : <FiAlertCircle size={14} />}
+                </span>
+
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold leading-tight text-white">{toast.title}</p>
+                  <p className="mt-1 leading-relaxed text-white/90">{toast.message}</p>
+
+                  {toast.showFallbackActions && (
+                    <div className="mt-2 flex flex-wrap items-center gap-2">
+                      <a
+                        href={supportEmailUrl}
+                        className="inline-flex items-center gap-1 rounded-full border border-white/35 bg-white/14 px-3 py-1 text-xs font-semibold text-white transition hover:bg-white/22"
+                      >
+                        <FiMail size={12} />
+                        Email Us
+                      </a>
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center rounded-full border border-white/35 bg-white/14 px-3 py-1 text-xs font-semibold text-white transition hover:bg-white/22"
+                      >
+                        WhatsApp
+                      </a>
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  type="button"
+                  aria-label="Dismiss notification"
+                  onClick={() => dismissToast(toast.id)}
+                  className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/14 text-white transition hover:bg-white/24"
+                >
+                  <FiX size={13} />
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <form onSubmit={handleSubmit} method="post" className="mt-5 space-y-4" data-aos="fade-up">
+        <div>
+          <label htmlFor="name" className="block text-left text-sm font-semibold">
             Name
           </label>
           <input
@@ -89,12 +180,14 @@ const Form = () => {
             name="name"
             id="name"
             aria-label="name"
-            className="text-black w-full py-[.8rem] px-[.5rem] leading-tight focus:outline-none bg-[#ddd] mt-[.5rem]"
+            autoComplete="name"
+            required
+            className="mt-2 w-full rounded-xl border border-slate-300/80 bg-white px-3 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-white/20 dark:bg-slate-950/65 dark:text-white dark:focus:border-emerald-300 dark:focus:ring-emerald-500/20"
           />
         </div>
 
-        <div className="mb-[1rem]">
-          <label htmlFor="email" className="block text-left font-bold">
+        <div>
+          <label htmlFor="email" className="block text-left text-sm font-semibold">
             Email Address
           </label>
           <input
@@ -105,12 +198,14 @@ const Form = () => {
             name="email"
             id="email"
             aria-label="email-address"
-            className="text-black w-full py-[.8rem] px-[.5rem] leading-tight focus:outline-none bg-[#ddd] mt-[.5rem]"
+            autoComplete="email"
+            required
+            className="mt-2 w-full rounded-xl border border-slate-300/80 bg-white px-3 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-white/20 dark:bg-slate-950/65 dark:text-white dark:focus:border-emerald-300 dark:focus:ring-emerald-500/20"
           />
         </div>
 
-        <div className="mb-[1rem]">
-          <label htmlFor="message" className="block text-left font-bold">
+        <div>
+          <label htmlFor="message" className="block text-left text-sm font-semibold">
             Message
           </label>
           <textarea
@@ -120,38 +215,21 @@ const Form = () => {
             onChange={(e) => setMessage(e.target.value)}
             id="message"
             aria-label="message"
-            className="text-black w-full py-[.8rem] px-[.5rem] leading-tight focus:outline-none bg-[#ddd] mt-[.5rem]gt"
+            required
+            className="mt-2 min-h-[140px] w-full rounded-xl border border-slate-300/80 bg-white px-3 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-white/20 dark:bg-slate-950/65 dark:text-white dark:focus:border-emerald-300 dark:focus:ring-emerald-500/20"
           />
         </div>
 
-        <div className="mb-[1.5rem]">
+        <div className="pt-1">
           <button
             type="submit"
-            className=" mb-5 text-[.9rem] dark:text-white rounded-[.2rem] border-[.8px] border-[purple] bg-[green] text-black py-[.7rem] px-[1.6rem] font-[100]"
+            disabled={isSubmitting}
+            className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Send Message
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </div>
       </form>
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header className="bg-gradient-to-r from-purple-600 to-green-600 text-white">
-          <h5 className="mx-auto">R.O.O.T.S</h5>
-        </Modal.Header>
-        <Modal.Body className="bg-slate-900 text-white py-6 px-8 rounded-lg shadow-lg">
-          {modalMessage}
-        </Modal.Body>
-        <Modal.Footer className="bg-slate-900 flex justify-end">
-          <Button variant="secondary" className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded" onClick={() => setShowModal(false)}>
-            Close
-          </Button>
-          {isSuccessful && (
-            <Button variant="primary" className="bg-green-500 hover:bg-green-500 text-white py-2 px-4 ml-3 rounded" onClick={subUser}>
-              Subscribe
-            </Button>
-          )}
-        </Modal.Footer>
-      </Modal>
-
     </div>
   );
 };

@@ -54,5 +54,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/R-O-O-T-S/roots-website/issues"
+  },
+  "overrides": {
+    "esbuild": "0.24.2"
   }
 }
