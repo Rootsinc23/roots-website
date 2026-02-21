@@ -107,7 +107,7 @@ const Form = () => {
 
   return (
     <div className="mt-4 text-slate-900 dark:text-slate-100">
-      <div className="pointer-events-none fixed right-4 top-24 z-[90] flex w-[min(92vw,360px)] flex-col gap-3 sm:right-6">
+      <div className="pointer-events-none fixed right-2 top-24 z-[90] flex w-[min(360px,calc(100vw-1rem))] flex-col gap-3 sm:right-6 sm:w-[min(360px,calc(100vw-3rem))]">
         {toasts.map((toast) => {
           const isSuccess = toast.type === "success";
           return (
