@@ -13,9 +13,6 @@ const MyCarousel = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-[#04070f]/96 via-[#060d1a]/90 to-[#071711]/76" />
       <span className="pointer-events-none absolute -left-28 bottom-0 h-80 w-80 rounded-full bg-violet-500/18 blur-3xl" />
       <span className="pointer-events-none absolute -right-20 top-16 h-72 w-72 rounded-full bg-emerald-400/16 blur-3xl" />
-      <span className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-b from-transparent via-[#070f1f]/58 to-[#081325]/96" />
-      <span className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-[radial-gradient(120%_95%_at_50%_100%,rgba(168,85,247,0.14),rgba(16,185,129,0.14)_45%,transparent_78%)] dark:bg-[radial-gradient(120%_95%_at_50%_100%,rgba(124,58,237,0.2),rgba(16,185,129,0.18)_45%,transparent_80%)]" />
-
       <div className="relative z-10 mx-auto grid min-h-[80vh] max-w-6xl items-center gap-6 px-3 pb-10 pt-28 text-white sm:min-h-[78vh] sm:gap-7 sm:px-6 sm:pb-14 sm:pt-28 lg:grid-cols-[1fr_320px] lg:pt-32">
         <div>
           <p className="mb-4 inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-violet-300/35 bg-slate-900/42 px-3 py-1.5 text-[10px] uppercase tracking-[0.13em] text-slate-100 sm:mb-5 sm:px-3.5 sm:text-[11px] sm:tracking-[0.16em]">
