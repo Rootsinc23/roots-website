@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import TEAM from "../team";
 import Aos from "aos";
 import "aos/dist/aos.css";

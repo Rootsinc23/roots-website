@@ -1,4 +1,11 @@
-import { FiArrowUpRight, FiMessageSquare, FiStar } from "react-icons/fi";
+import { useMemo, useState } from "react";
+import {
+  FiArrowUpRight,
+  FiChevronLeft,
+  FiChevronRight,
+  FiMessageSquare,
+  FiStar,
+} from "react-icons/fi";
 import j1 from "../assets/images/john1.webp";
 import j2 from "../assets/images/john2.webp";
 import j3 from "../assets/images/john3.webp";
@@ -59,12 +66,27 @@ const renderStars = () => (
 );
 
 const TopReviews = () => {
-  const featured = REVIEWS.find((item) => item.highlight);
-  const others = REVIEWS.filter((item) => !item.highlight);
+  const reviews = useMemo(() => {
+    const featured = REVIEWS.find((item) => item.highlight);
+    if (!featured) return REVIEWS;
+    return [featured, ...REVIEWS.filter((item) => item.id !== featured.id)];
+  }, []);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const activeReview = reviews[activeIndex];
+  const totalReviews = reviews.length;
+
+  const showPrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? totalReviews - 1 : prev - 1));
+  };
+
+  const showNext = () => {
+    setActiveIndex((prev) => (prev + 1) % totalReviews);
+  };
 
   return (
     <section
-      className="roots-section relative overflow-hidden px-4 py-16 text-slate-900 sm:px-8 sm:py-20 lg:px-12 dark:text-slate-100"
+      className="roots-section relative overflow-hidden px-3 py-12 text-slate-900 sm:px-8 sm:py-20 lg:px-12 dark:text-slate-100"
       data-tone="reviews"
       id="reviews"
     >
@@ -78,79 +100,103 @@ const TopReviews = () => {
             Client Reviews
           </p>
           <h2
-            className="fx-title-glow mt-4 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl"
+            className="fx-title-glow mt-4 text-[1.95rem] font-semibold leading-[1.12] sm:text-4xl lg:text-5xl"
             style={{ fontFamily: '"Ibarra Real Nova", serif' }}
           >
             What people say after building with ROOTS
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
+          <p className="mt-3.5 text-[13px] leading-relaxed text-slate-600 sm:mt-4 sm:text-base dark:text-slate-300">
             Feedback from founders, product teams, and operators who trusted us with critical
             digital products.
           </p>
         </div>
 
-        {featured && (
-          <article
+        {activeReview && (
+          <div
             data-aos="fade-up"
-            className="fx-card-lift mt-10 rounded-3xl border border-slate-300/70 bg-white/86 p-6 shadow-[0_14px_34px_rgba(15,23,42,0.1)] dark:border-white/15 dark:bg-slate-950/62 dark:shadow-[0_16px_38px_rgba(2,6,23,0.45)] sm:p-8"
+            className="mt-8 rounded-2xl border border-slate-300/75 bg-white/86 p-3.5 shadow-[0_14px_34px_rgba(15,23,42,0.1)] dark:border-white/15 dark:bg-slate-950/62 dark:shadow-[0_16px_38px_rgba(2,6,23,0.45)] sm:mt-10 sm:rounded-3xl sm:p-5"
           >
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-[auto_1fr] md:items-start">
-              <div className="flex items-center gap-3 md:flex-col md:items-start">
-                <img
-                  src={featured.avatar}
-                  alt={featured.name}
-                  className="h-14 w-14 rounded-full object-cover ring-2 ring-emerald-300/60 dark:ring-emerald-500/40"
-                />
-                <div>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white">{featured.name}</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-300">{featured.role}</p>
-                </div>
-              </div>
-
+            <div className="flex items-center justify-between gap-3">
               <div>
-                {renderStars()}
-                <p className="mt-3 text-base leading-relaxed text-slate-700 dark:text-slate-200 sm:text-lg">
-                  “{featured.quote}”
+                <p className="text-[10px] uppercase tracking-[0.14em] text-slate-500 dark:text-slate-300">
+                  Review {activeIndex + 1} of {totalReviews}
                 </p>
+                <div className="mt-1">{renderStars()}</div>
+              </div>
+              <div className="inline-flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={showPrev}
+                  aria-label="Previous review"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300/80 bg-white text-slate-700 transition hover:bg-slate-100 dark:border-white/20 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:bg-slate-800"
+                >
+                  <FiChevronLeft size={16} />
+                </button>
+                <button
+                  type="button"
+                  onClick={showNext}
+                  aria-label="Next review"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300/80 bg-white text-slate-700 transition hover:bg-slate-100 dark:border-white/20 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:bg-slate-800"
+                >
+                  <FiChevronRight size={16} />
+                </button>
               </div>
             </div>
-          </article>
-        )}
 
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {others.map((review, idx) => (
             <article
-              key={review.id}
-              data-aos="fade-up"
-              data-aos-delay={idx * 70}
-              className="fx-card-lift rounded-3xl border border-slate-300/75 bg-white/84 p-5 shadow-[0_12px_30px_rgba(15,23,42,0.08)] dark:border-white/15 dark:bg-slate-950/62 dark:shadow-[0_14px_34px_rgba(2,6,23,0.4)]"
+              key={activeReview.id}
+              className="mt-3.5 rounded-2xl border border-slate-300/75 bg-white/84 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.07)] dark:border-white/12 dark:bg-slate-950/58 dark:shadow-[0_12px_28px_rgba(2,6,23,0.3)] sm:p-5"
             >
               <div className="flex items-center gap-3">
-                <img src={review.avatar} alt={review.name} className="h-10 w-10 rounded-full object-cover" />
+                <img
+                  src={activeReview.avatar}
+                  alt={activeReview.name}
+                  className="h-10 w-10 rounded-full object-cover ring-2 ring-emerald-300/45 sm:h-12 sm:w-12 dark:ring-emerald-500/30"
+                />
                 <div>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white">{review.name}</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-300">{review.role}</p>
+                  <p className="text-[13px] font-semibold text-slate-900 sm:text-sm dark:text-white">
+                    {activeReview.name}
+                  </p>
+                  <p className="text-[11px] text-slate-500 sm:text-xs dark:text-slate-300">
+                    {activeReview.role}
+                  </p>
                 </div>
               </div>
 
-              <div className="mt-3">{renderStars()}</div>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                “{review.quote}”
+              <p className="mt-3 text-[13px] leading-relaxed text-slate-700 sm:text-base dark:text-slate-200">
+                “{activeReview.quote}”
               </p>
             </article>
-          ))}
-        </div>
+
+            <div className="mt-3.5 flex items-center justify-center gap-1.5">
+              {reviews.map((review, idx) => (
+                <button
+                  key={review.id}
+                  type="button"
+                  onClick={() => setActiveIndex(idx)}
+                  aria-label={`Show review ${idx + 1}`}
+                  aria-current={idx === activeIndex ? "true" : undefined}
+                  className={`h-2 rounded-full transition-all duration-200 ${
+                    idx === activeIndex
+                      ? "w-6 bg-emerald-500"
+                      : "w-2 bg-slate-300 hover:bg-slate-400 dark:bg-white/25 dark:hover:bg-white/40"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
         <div
           data-aos="fade-up"
-          className="fx-card-lift mt-6 rounded-2xl border border-slate-300/75 bg-white/84 p-4 dark:border-white/15 dark:bg-slate-950/62 sm:flex sm:items-center sm:justify-between"
+          className="fx-card-lift mt-5 rounded-2xl border border-slate-300/75 bg-white/84 p-3.5 dark:border-white/15 dark:bg-slate-950/62 sm:mt-6 sm:flex sm:items-center sm:justify-between sm:p-4"
         >
-          <div className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white">
+          <div className="inline-flex items-center gap-2 text-[13px] font-semibold text-slate-900 sm:text-sm dark:text-white">
             <FiMessageSquare className="text-emerald-600 dark:text-emerald-300" />
             Ready to build your own success story?
           </div>
           <Link to="contact" smooth duration={800}>
-            <button className="fx-card-lift mt-3 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 sm:mt-0">
+            <button className="fx-card-lift mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-4 py-2.5 text-[13px] font-semibold text-slate-950 transition hover:bg-emerald-400 sm:mt-0 sm:w-auto sm:py-2 sm:text-sm">
               Start a Project
               <FiArrowUpRight />
             </button>

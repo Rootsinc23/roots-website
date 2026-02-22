@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
 const Scrollup = () => {
@@ -27,13 +27,14 @@ const Scrollup = () => {
     });
   };
   return (
-    <div className="fixed bottom-4 right-4">
+    <div className="fixed bottom-3 right-3 z-40 sm:bottom-4 sm:right-4">
       {isVisible &&
       <button
         onClick={scrollToTop}
-        className="text-white dark:text-white hover-scale ease-in-out transition-all duration-300 hover:pb-1 justify-center bg-green-600 rounded-5 h-10 w-10"
+        aria-label="Scroll to top"
+        className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-emerald-300/25 bg-emerald-500/90 text-white shadow-[0_10px_22px_rgba(16,185,129,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-400 dark:border-emerald-300/20 sm:h-10 sm:w-10"
       >
-        <FaArrowUp size={20} className="mx-auto" />
+        <FaArrowUp size={16} className="mx-auto sm:text-[18px]" />
       </button>
       }
     </div>

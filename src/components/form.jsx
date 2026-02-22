@@ -107,13 +107,13 @@ const Form = () => {
 
   return (
     <div className="mt-4 text-slate-900 dark:text-slate-100">
-      <div className="pointer-events-none fixed right-2 top-24 z-[90] flex w-[min(360px,calc(100vw-1rem))] flex-col gap-3 sm:right-6 sm:w-[min(360px,calc(100vw-3rem))]">
+      <div className="pointer-events-none fixed right-2 top-20 z-[90] flex w-[min(340px,calc(100vw-1rem))] flex-col gap-2.5 sm:right-6 sm:top-24 sm:w-[min(360px,calc(100vw-3rem))] sm:gap-3">
         {toasts.map((toast) => {
           const isSuccess = toast.type === "success";
           return (
             <div
               key={toast.id}
-              className={`pointer-events-auto rounded-2xl border px-4 py-3 text-sm backdrop-blur-xl shadow-[0_16px_38px_rgba(15,23,42,0.26)] ${
+              className={`pointer-events-auto rounded-2xl border px-3.5 py-3 text-[13px] backdrop-blur-xl shadow-[0_16px_38px_rgba(15,23,42,0.26)] sm:px-4 sm:text-sm ${
                 isSuccess
                   ? "border-emerald-300/45 bg-emerald-400/16 text-emerald-50"
                   : "border-rose-300/50 bg-rose-400/16 text-rose-50"
@@ -167,7 +167,7 @@ const Form = () => {
         })}
       </div>
 
-      <form onSubmit={handleSubmit} method="post" className="mt-5 space-y-4" data-aos="fade-up">
+      <form onSubmit={handleSubmit} method="post" className="mt-4 space-y-3.5 sm:mt-5 sm:space-y-4" data-aos="fade-up">
         <div>
           <label htmlFor="name" className="block text-left text-sm font-semibold">
             Name
@@ -182,7 +182,7 @@ const Form = () => {
             aria-label="name"
             autoComplete="name"
             required
-            className="mt-2 w-full rounded-xl border border-slate-300/80 bg-white px-3 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-white/20 dark:bg-slate-950/65 dark:text-white dark:focus:border-emerald-300 dark:focus:ring-emerald-500/20"
+            className="mt-1.5 w-full rounded-xl border border-slate-300/80 bg-white px-3 py-2.5 text-[13px] text-slate-900 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 sm:mt-2 sm:py-3 sm:text-sm dark:border-white/20 dark:bg-slate-950/65 dark:text-white dark:focus:border-emerald-300 dark:focus:ring-emerald-500/20"
           />
         </div>
 
@@ -200,7 +200,7 @@ const Form = () => {
             aria-label="email-address"
             autoComplete="email"
             required
-            className="mt-2 w-full rounded-xl border border-slate-300/80 bg-white px-3 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-white/20 dark:bg-slate-950/65 dark:text-white dark:focus:border-emerald-300 dark:focus:ring-emerald-500/20"
+            className="mt-1.5 w-full rounded-xl border border-slate-300/80 bg-white px-3 py-2.5 text-[13px] text-slate-900 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 sm:mt-2 sm:py-3 sm:text-sm dark:border-white/20 dark:bg-slate-950/65 dark:text-white dark:focus:border-emerald-300 dark:focus:ring-emerald-500/20"
           />
         </div>
 
@@ -216,7 +216,7 @@ const Form = () => {
             id="message"
             aria-label="message"
             required
-            className="mt-2 min-h-[140px] w-full rounded-xl border border-slate-300/80 bg-white px-3 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-white/20 dark:bg-slate-950/65 dark:text-white dark:focus:border-emerald-300 dark:focus:ring-emerald-500/20"
+            className="mt-1.5 min-h-[124px] w-full rounded-xl border border-slate-300/80 bg-white px-3 py-2.5 text-[13px] text-slate-900 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 sm:mt-2 sm:min-h-[140px] sm:py-3 sm:text-sm dark:border-white/20 dark:bg-slate-950/65 dark:text-white dark:focus:border-emerald-300 dark:focus:ring-emerald-500/20"
           />
         </div>
 
@@ -224,7 +224,7 @@ const Form = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center rounded-full bg-emerald-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </button>

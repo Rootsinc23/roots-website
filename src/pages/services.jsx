@@ -71,7 +71,7 @@ const Services = () => {
     <section
       id="services"
       data-tone="services"
-      className="roots-section relative overflow-hidden px-4 py-12 text-slate-900 sm:px-8 sm:py-20 lg:px-12 dark:text-slate-100"
+      className="roots-section relative overflow-hidden px-3 py-10 text-slate-900 sm:px-8 sm:py-20 lg:px-12 dark:text-slate-100"
     >
       <span className="fx-float-slow pointer-events-none absolute -left-20 top-16 h-72 w-72 rounded-full bg-emerald-300/35 blur-3xl dark:bg-emerald-500/16" />
       <span className="fx-float-reverse pointer-events-none absolute -right-20 bottom-4 h-72 w-72 rounded-full bg-cyan-300/35 blur-3xl dark:bg-cyan-500/14" />
@@ -83,18 +83,18 @@ const Services = () => {
             Services
           </p>
           <h2
-            className="fx-title-glow mt-4 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl"
+            className="fx-title-glow mt-4 text-[1.95rem] font-semibold leading-[1.12] sm:text-4xl lg:text-5xl"
             style={{ fontFamily: '"Ibarra Real Nova", serif' }}
           >
             Product and engineering services built to move serious teams forward.
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
+          <p className="mt-3.5 text-[13px] leading-relaxed text-slate-600 sm:mt-4 sm:text-base dark:text-slate-300">
             ROOTS delivers end-to-end digital execution, from product thinking to launch and
             long-term support.
           </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-7 grid grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {SERVICES.map((service, idx) => {
             const Icon = service.icon;
             return (
@@ -102,37 +102,41 @@ const Services = () => {
                 key={service.title}
                 data-aos="fade-up"
                 data-aos-delay={idx * 60}
-                className={`fx-card-lift group relative overflow-hidden rounded-3xl border border-slate-300/70 bg-white/82 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgba(15,23,42,0.14)] dark:border-white/15 dark:bg-slate-900/65 dark:shadow-[0_14px_34px_rgba(2,6,23,0.4)] dark:hover:shadow-[0_20px_46px_rgba(2,6,23,0.48)] sm:p-5 ${idx > 3 ? "hidden sm:block" : ""}`}
+                className={`fx-card-lift group relative overflow-hidden rounded-2xl border border-slate-300/70 bg-white/82 p-3.5 shadow-[0_12px_30px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgba(15,23,42,0.14)] dark:border-white/15 dark:bg-slate-900/65 dark:shadow-[0_14px_34px_rgba(2,6,23,0.4)] dark:hover:shadow-[0_20px_46px_rgba(2,6,23,0.48)] sm:rounded-3xl sm:p-5 ${idx > 3 ? "hidden sm:block" : ""}`}
               >
                 <div
-                  className={`pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b ${service.accent} opacity-70`}
+                  className={`pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b ${service.accent} opacity-70 sm:h-24`}
                 />
 
                 <div className="relative">
-                  <div className={`fx-pulse-glow inline-flex h-10 w-10 items-center justify-center rounded-full ${service.iconStyle}`}>
-                    <Icon size={18} />
+                  <div
+                    className={`fx-pulse-glow inline-flex h-9 w-9 items-center justify-center rounded-full ${service.iconStyle} sm:h-10 sm:w-10`}
+                  >
+                    <Icon size={16} className="sm:h-[18px] sm:w-[18px]" />
                   </div>
 
-                  <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">{service.title}</h3>
-                  <p className="mt-2 text-[13px] leading-relaxed text-slate-600 sm:text-sm dark:text-slate-300">
+                  <h3 className="mt-3 text-base font-semibold leading-snug text-slate-900 sm:mt-4 sm:text-lg dark:text-white">
+                    {service.title}
+                  </h3>
+                  <p className="mt-1.5 text-[12px] leading-relaxed text-slate-600 sm:mt-2 sm:text-sm dark:text-slate-300">
                     {service.summary}
                   </p>
 
-                  <ul className="mt-3 space-y-1.5 sm:mt-4 sm:space-y-2">
+                  <ul className="mt-2.5 space-y-1 sm:mt-4 sm:space-y-2">
                     {service.items.map((item, itemIdx) => (
                       <li
                         key={item}
-                        className={`flex items-start gap-2 text-[11px] leading-relaxed text-slate-600 sm:text-xs dark:text-slate-300 ${
+                        className={`flex items-start gap-1.5 text-[10px] leading-relaxed text-slate-600 sm:gap-2 sm:text-xs dark:text-slate-300 ${
                           itemIdx > 1 ? "hidden md:flex" : ""
                         }`}
                       >
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-600 sm:mt-5 dark:text-emerald-300">
+                  <div className="mt-3.5 inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-emerald-600 sm:mt-5 sm:text-xs sm:tracking-[0.12em] dark:text-emerald-300">
                     Build with ROOTS
                     <FiArrowUpRight className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>

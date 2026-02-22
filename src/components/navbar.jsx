@@ -66,13 +66,13 @@ const Navbar = () => {
     }`;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4 md:px-6 lg:px-8">
-      <div className="mx-auto flex h-[4.5rem] w-full max-w-[1300px] items-center justify-between rounded-2xl border border-slate-300/70 bg-white/74 px-3 shadow-[0_10px_28px_rgba(15,23,42,0.16)] backdrop-blur-xl dark:border-white/22 dark:bg-slate-950/82 dark:shadow-[0_12px_34px_rgba(2,6,23,0.46)] sm:h-[5rem] sm:px-4">
+    <header className="fixed inset-x-0 top-0 z-50 px-2.5 pt-2.5 sm:px-4 sm:pt-4 md:px-6 lg:px-8">
+      <div className="mx-auto flex h-[4rem] w-full max-w-[1300px] items-center justify-between rounded-2xl border border-slate-300/70 bg-white/74 px-2.5 shadow-[0_10px_28px_rgba(15,23,42,0.16)] backdrop-blur-xl dark:border-white/22 dark:bg-slate-950/82 dark:shadow-[0_12px_34px_rgba(2,6,23,0.46)] sm:h-[5rem] sm:px-4">
         <div className="flex items-center">
           <img
             src={rootsLogo}
             alt="ROOTS logo"
-            className="h-12 w-auto object-contain brightness-110 contrast-150 saturate-[1.7] drop-shadow-[0_0_22px_rgba(52,211,153,0.42)] sm:h-14 lg:h-16"
+            className="h-10 w-auto object-contain brightness-110 contrast-150 saturate-[1.7] drop-shadow-[0_0_22px_rgba(52,211,153,0.42)] sm:h-14 lg:h-16"
           />
         </div>
 
@@ -86,7 +86,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 sm:gap-1.5">
           <div className="hidden items-center gap-1 rounded-full border border-slate-300/70 bg-white/72 p-1 md:flex dark:border-white/22 dark:bg-slate-900/80">
             {THEME_OPTIONS.map((opt) => {
               const Icon = opt.icon;
@@ -111,7 +111,7 @@ const Navbar = () => {
 
           <button
             type="button"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-300/75 text-slate-700 transition-all duration-200 hover:bg-slate-900/10 xl:hidden dark:border-white/22 dark:text-slate-100 dark:hover:bg-white/14"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300/75 text-slate-700 transition-all duration-200 hover:bg-slate-900/10 xl:hidden dark:border-white/22 dark:text-slate-100 dark:hover:bg-white/14"
             onClick={() => setShowMenu((prev) => !prev)}
             aria-label={showMenu ? "Close menu" : "Open menu"}
           >
@@ -121,7 +121,7 @@ const Navbar = () => {
       </div>
 
       {showMenu && (
-        <nav className="mx-auto mt-2 flex w-full max-w-[1300px] flex-col gap-2 rounded-2xl border border-slate-300/80 bg-white/92 p-3 text-slate-900 shadow-[0_16px_44px_rgba(15,23,42,0.2)] backdrop-blur-xl dark:border-white/22 dark:bg-slate-950/94 dark:text-white dark:shadow-[0_16px_44px_rgba(2,6,23,0.52)] xl:hidden">
+        <nav className="mx-auto mt-2 flex w-full max-w-[1300px] flex-col gap-2 rounded-2xl border border-slate-300/80 bg-white/92 p-2.5 text-slate-900 shadow-[0_16px_44px_rgba(15,23,42,0.2)] backdrop-blur-xl dark:border-white/22 dark:bg-slate-950/94 dark:text-white dark:shadow-[0_16px_44px_rgba(2,6,23,0.52)] xl:hidden sm:p-3">
           {NAV_LINKS.map((item) => (
             <Link key={item.id} to={item.id} smooth duration={800} offset={NAV_OFFSET}>
               <button type="button" onClick={() => handleLinkClick(item.id)} className={`${linkClass(item.id)} w-full`}>
