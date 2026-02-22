@@ -65,6 +65,24 @@ const Navbar = () => {
         : "text-slate-700 hover:bg-slate-900/10 hover:text-slate-950 dark:text-slate-200 dark:hover:bg-white/14 dark:hover:text-white"
     }`;
 
+  const mobileMenuLinkClass = (id) =>
+    `w-full rounded-xl border px-3 py-2.5 text-left text-[13px] font-semibold tracking-[0.01em] transition-all duration-200 ${
+      activeLink === id
+        ? "border-emerald-300/60 bg-emerald-50 text-emerald-800 shadow-[0_10px_18px_rgba(16,185,129,0.12)] dark:border-emerald-300/25 dark:bg-emerald-400/10 dark:text-emerald-200 dark:shadow-none"
+        : "border-slate-300/75 bg-white/88 text-slate-800 hover:border-slate-400/70 hover:bg-slate-100 dark:border-white/12 dark:bg-slate-950/55 dark:text-slate-100 dark:hover:border-white/20 dark:hover:bg-slate-900/80"
+    }`;
+
+  const themeIconClass = (themeId, isActive) => {
+    if (isActive) return "text-slate-950";
+    if (themeId === "light") {
+      return "text-amber-500 dark:text-amber-300";
+    }
+    if (themeId === "dark") {
+      return "text-slate-700 dark:text-slate-100";
+    }
+    return "text-cyan-600 dark:text-cyan-300";
+  };
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-2.5 pt-2.5 sm:px-4 sm:pt-4 md:px-6 lg:px-8">
       <div className="mx-auto flex h-[4rem] w-full max-w-[1300px] items-center justify-between rounded-2xl border border-slate-300/70 bg-white/74 px-2.5 shadow-[0_10px_28px_rgba(15,23,42,0.16)] backdrop-blur-xl dark:border-white/22 dark:bg-slate-950/82 dark:shadow-[0_12px_34px_rgba(2,6,23,0.46)] sm:h-[5rem] sm:px-4">
@@ -99,11 +117,11 @@ const Navbar = () => {
                   onClick={() => setTheme(opt.text)}
                   className={`inline-flex h-7 w-7 items-center justify-center rounded-full transition-all duration-200 ${
                     theme === opt.text
-                      ? "bg-emerald-500 text-slate-950"
-                      : "text-slate-600 hover:bg-slate-900/10 hover:text-slate-900 dark:text-slate-200 dark:hover:bg-white/14 dark:hover:text-white"
+                      ? "bg-emerald-500 text-slate-950 shadow-[0_6px_14px_rgba(16,185,129,0.24)]"
+                      : "bg-slate-100/95 text-slate-700 ring-1 ring-slate-300/70 hover:bg-slate-200/90 hover:text-slate-900 dark:bg-white/5 dark:text-slate-100 dark:ring-white/10 dark:hover:bg-white/14 dark:hover:text-white"
                   }`}
                 >
-                  <Icon size={12} />
+                  <Icon size={14} className={themeIconClass(opt.text, theme === opt.text)} />
                 </button>
               );
             })}
@@ -124,13 +142,17 @@ const Navbar = () => {
         <nav className="mx-auto mt-2 flex w-full max-w-[1300px] flex-col gap-2 rounded-2xl border border-slate-300/80 bg-white/92 p-2.5 text-slate-900 shadow-[0_16px_44px_rgba(15,23,42,0.2)] backdrop-blur-xl dark:border-white/22 dark:bg-slate-950/94 dark:text-white dark:shadow-[0_16px_44px_rgba(2,6,23,0.52)] xl:hidden sm:p-3">
           {NAV_LINKS.map((item) => (
             <Link key={item.id} to={item.id} smooth duration={800} offset={NAV_OFFSET}>
-              <button type="button" onClick={() => handleLinkClick(item.id)} className={`${linkClass(item.id)} w-full`}>
+              <button
+                type="button"
+                onClick={() => handleLinkClick(item.id)}
+                className={mobileMenuLinkClass(item.id)}
+              >
                 {item.label}
               </button>
             </Link>
           ))}
 
-          <div className="mt-1 flex items-center justify-center gap-1 rounded-full border border-slate-300/75 bg-white/80 p-1 dark:border-white/22 dark:bg-slate-900/82">
+          <div className="mx-auto mt-1 inline-flex w-fit items-center justify-center gap-1.5 rounded-full border border-slate-300/75 bg-white/85 p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.35)] dark:border-white/22 dark:bg-slate-900/82 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
             {THEME_OPTIONS.map((opt) => {
               const Icon = opt.icon;
               return (
@@ -140,13 +162,13 @@ const Navbar = () => {
                   aria-label={opt.ariaLabel}
                   title={opt.ariaLabel}
                   onClick={() => setTheme(opt.text)}
-                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 ${
+                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 sm:h-9 sm:w-9 ${
                     theme === opt.text
-                      ? "bg-emerald-500 text-slate-950"
-                      : "text-slate-600 hover:bg-slate-900/10 hover:text-slate-900 dark:text-slate-200 dark:hover:bg-white/14 dark:hover:text-white"
+                      ? "bg-emerald-500 text-slate-950 shadow-[0_8px_16px_rgba(16,185,129,0.28)]"
+                      : "bg-slate-100/95 text-slate-700 ring-1 ring-slate-300/70 hover:bg-slate-200/90 hover:text-slate-900 dark:bg-white/5 dark:text-slate-100 dark:ring-white/10 dark:hover:bg-white/14 dark:hover:text-white"
                   }`}
                 >
-                  <Icon size={13} />
+                  <Icon size={15} className={themeIconClass(opt.text, theme === opt.text)} />
                 </button>
               );
             })}

@@ -35,21 +35,21 @@ const MyCarousel = () => {
             and stable delivery.
           </p>
 
-          <div className="mt-6 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:gap-3">
-            <Link to="contact" smooth duration={800} offset={-30}>
+          <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-8 sm:flex sm:flex-row sm:gap-3">
+            <Link to="contact" smooth duration={800} offset={-30} className="block">
               <button
                 type="button"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 sm:w-auto sm:px-6"
+                className="inline-flex w-full min-w-0 items-center justify-center gap-1.5 rounded-full bg-emerald-500 px-3 py-3 text-[12px] font-semibold text-slate-950 transition hover:bg-emerald-400 sm:w-auto sm:gap-2 sm:px-6 sm:text-sm"
               >
                 Start a Project
                 <FiArrowUpRight />
               </button>
             </Link>
 
-            <Link to="services" smooth duration={800} offset={-30}>
+            <Link to="services" smooth duration={800} offset={-30} className="block">
               <button
                 type="button"
-                className="w-full rounded-full border border-white/45 bg-white/7 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/14 sm:w-auto sm:px-6"
+                className="w-full min-w-0 rounded-full border border-white/45 bg-white/7 px-3 py-3 text-[12px] font-semibold text-white transition hover:bg-white/14 sm:w-auto sm:px-6 sm:text-sm"
               >
                 Explore Services
               </button>
