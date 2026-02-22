@@ -31,6 +31,49 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(16, 185, 129, 0.75) rgba(15, 23, 42, 0.08);
+}
+
+html.dark {
+  scrollbar-color: rgba(16, 185, 129, 0.8) rgba(148, 163, 184, 0.08);
+}
+
+/* WebKit scrollbar styling for a polished ROOTS-themed look */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(rgba(16, 185, 129, 0.78), rgba(124, 58, 237, 0.72)) padding-box,
+    linear-gradient(transparent, transparent) border-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(rgba(16, 185, 129, 0.9), rgba(124, 58, 237, 0.86)) padding-box,
+    linear-gradient(transparent, transparent) border-box;
+}
+
+html.dark::-webkit-scrollbar-track,
+html.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+html.dark::-webkit-scrollbar-thumb,
+html.dark ::-webkit-scrollbar-thumb {
+  border-color: rgba(15, 23, 42, 0.2);
+}
+
 html:not(.dark) body {
   background:
     radial-gradient(1100px 520px at 7% 3%, rgba(139, 92, 246, 0.07), transparent 58%),
